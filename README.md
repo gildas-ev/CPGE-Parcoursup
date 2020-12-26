@@ -2,8 +2,8 @@
 Traitement des données parcoursup (session 2019) dans le but de créer un tableau répertoriant les différentes offres de formations et leurs informations.
 
 ## Tableaux
-[Tableau filière MPSI](https://htmlpreview.github.io/?https://github.com/gildas-ev/CPGE-Parcoursup/blob/main/mpsi.html)  
-[Tableau filière PCSI](https://htmlpreview.github.io/?https://github.com/gildas-ev/CPGE-Parcoursup/blob/main/pcsi.html)
+[Tableau filière MPSI](https://gildas-ev.github.io/CPGE-Parcoursup/mpsi.html)  
+[Tableau filière PCSI](https://gildas-ev.github.io/CPGE-Parcoursup/pcsi.html)
 
 ## Utilisation
 Pour utiliser ce programme il suffit d'exécuter le fichier [analyse.py](https://github.com/gildas-ev/CPGE-Parcoursup/blob/main/analyse.py).  
