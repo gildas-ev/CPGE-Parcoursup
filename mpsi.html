@@ -1,4 +1,9 @@
-<strong>Tableau synthétique des formations MPSI session 2019<br></strong><strong>Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br></strong><strong>Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
+<style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
+<style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
+<style>th {background-color: #c5c5c5;}</style>
+<style>td {background-color: #D9E1F2;}</style><strong>Tableau synthétique des formations MPSI session 2019<br>
+Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
+Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
 Ce tableau contient 124 formations.<br>
 Les formations sont divisés en déciles (indexés de 0 à 9) en fonction de leur taux d'accès.<br>
@@ -6,9 +11,8 @@ Le taux d'accès est calculé selon la formule : rang du dernier appelé / nb de
 Dans le cas où le rang du dernier appelé n'est pas fourni on utilise : nb de propositions d'admission / nb de candidats * 100 (cas de Sainte Geneviève)<br>
 Le roulement est défini par la formule : nb de candidats ayant accepté la proposition d'admission / nb de candidats ayant reçu une proposition d’admission.<br>
 Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'évaluer à quel point ce voeu est souhaité par les étudiants.<br>
-Les résultats X, X-ENS et Top 12 marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant. Résultats filière MP.<br>
-Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
-</p><table border="1" class="dataframe">
+Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant. Résultats filière MP et PSI.<br>
+Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p><table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
       <th>Decile</th>
@@ -17,8 +21,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <th>Académie de l’établissement</th>
       <th>Capacité de l’établissement par formation</th>
       <th>Taux d'accès</th>
+      <th>Rang du dernier appelé</th>
       <th>Roulement</th>
       <th>% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale</th>
+      <th>% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)</th>
       <th>% d’admis néo bacheliers avec mention Très Bien au bac</th>
       <th>Rapport d'examen des voeux</th>
       <th>Lien de la formation sur la plateforme Parcoursup</th>
@@ -26,9 +32,12 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <th>Hebergement</th>
       <th>Langues et options</th>
       <th>Infos supplementaires</th>
-      <th>Résultats X</th>
-      <th>Résultats X-ENS</th>
-      <th>Résultats Top 12</th>
+      <th>Résultats X MP</th>
+      <th>Résultats X-ENS MP</th>
+      <th>Résultats Top 12 MP</th>
+      <th>Résultats X PSI</th>
+      <th>Résultats X-ENS PSI</th>
+      <th>Résultats Top 11 PSI</th>
     </tr>
   </thead>
   <tbody>
@@ -39,8 +48,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>182.0</td>
       <td>6.17</td>
+      <td>379.0</td>
       <td>0.54</td>
       <td>52.20</td>
+      <td>51.64</td>
       <td>86.81</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750655E&g_ti_cod=8974&c_ja_cod=7522" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750655E&g_ti_cod=8974&c_ja_cod=7522</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8974&g_ta_cod=8974" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8974&g_ta_cod=8974</a></td>
@@ -51,6 +62,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>24.3</td>
       <td>39.9</td>
       <td>63.5</td>
+      <td>14.2</td>
+      <td>19.8</td>
+      <td>84.8</td>
     </tr>
     <tr>
       <td>0</td>
@@ -59,8 +73,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>92.0</td>
       <td>6.48</td>
+      <td>367.0</td>
       <td>0.33</td>
       <td>30.43</td>
+      <td>74.72</td>
       <td>89.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750654D&g_ti_cod=8964&c_ja_cod=7512" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750654D&g_ti_cod=8964&c_ja_cod=7512</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8964&g_ta_cod=8964" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8964&g_ta_cod=8964</a></td>
@@ -71,6 +87,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>18.4</td>
       <td>26.3</td>
       <td>57.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>0</td>
@@ -79,8 +98,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>142.0</td>
       <td>7.45</td>
+      <td>NaN</td>
       <td>0.74</td>
       <td>69.72</td>
+      <td>33.80</td>
       <td>97.17</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0783053V&g_ti_cod=10072&c_ja_cod=17798" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0783053V&g_ti_cod=10072&c_ja_cod=17798</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10072&g_ta_cod=10072" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10072&g_ta_cod=10072</a></td>
@@ -91,6 +112,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>30.7</td>
       <td>33.7</td>
       <td>69.5</td>
+      <td>21.2</td>
+      <td>24.9</td>
+      <td>89.9</td>
     </tr>
     <tr>
       <td>0</td>
@@ -99,8 +123,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>96.0</td>
       <td>10.20</td>
+      <td>369.0</td>
       <td>0.34</td>
       <td>19.79</td>
+      <td>87.36</td>
       <td>89.47</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782562L&g_ti_cod=10043&c_ja_cod=8556" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782562L&g_ti_cod=10043&c_ja_cod=8556</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10043&g_ta_cod=10043" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10043&g_ta_cod=10043</a></td>
@@ -111,6 +137,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>13.3</td>
       <td>17.1</td>
       <td>56.9</td>
+      <td>15.8</td>
+      <td>22</td>
+      <td>89.5</td>
     </tr>
     <tr>
       <td>0</td>
@@ -119,8 +148,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>136.0</td>
       <td>10.78</td>
+      <td>624.0</td>
       <td>0.27</td>
       <td>36.76</td>
+      <td>16.18</td>
       <td>95.58</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690026D&g_ti_cod=8182&c_ja_cod=6752" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690026D&g_ti_cod=8182&c_ja_cod=6752</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8182&g_ta_cod=8182" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8182&g_ta_cod=8182</a></td>
@@ -128,6 +159,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat mixte<br>Internat-externé<br>Demi-pension</td>
       <td>Langue vivante 1 : Allemand, Anglais, Arabe,  Russe, Italien, Espagnol<br>Langue vivante 2 : Allemand, Anglais, Arabe, Espagnol, Russe, Italien, Latin, Grec ancien<br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>MP(*) 3 divisions PSI(*) 2 divisions</td>
       <td>Tradition, excellence et humanisme se conjuguent en Province à proximité du Parc de la tête d'Or de LYON pour ce prestigieux lycée à recrutement national et international. Implanté dans un quartier très agréable bien desservi par les transports, proche de la gare Lyon Part Dieu et à 45 minutes de l'aéroport Saint Exupéry, le lycée du Parc, offre à ses 1300 étudiants en CPGE des conditions de travail privilégiées. Un CDI riche et moderne, un complexe sportif, une piscine, un internat rénové et de nombreux foyers à proximité (statut demi-pensionnaire ou interne-externé) permettent un épanouissement personnel. Un corps professoral de très haut niveau, une excellente ambiance de travail et de solidarité entre élèves, et un accompagnement des professeurs, tant sur le plan humain que scolaire, conduisent à la réussite de tous les élèves dans les nombreuses Grandes Ecoles dont les plus prestigieuses.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -139,8 +173,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Toulouse</td>
       <td>144.0</td>
       <td>12.43</td>
+      <td>579.0</td>
       <td>0.31</td>
       <td>23.02</td>
+      <td>61.15</td>
       <td>86.33</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310036W&g_ti_cod=4036&c_ja_cod=2821" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310036W&g_ti_cod=4036&c_ja_cod=2821</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4036&g_ta_cod=4036" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4036&g_ta_cod=4036</a></td>
@@ -151,6 +187,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>6.1</td>
       <td>11.1</td>
       <td>39.2</td>
+      <td>21.9</td>
+      <td>26.3</td>
+      <td>81.1</td>
     </tr>
     <tr>
       <td>0</td>
@@ -159,8 +198,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>60.0</td>
       <td>12.57</td>
+      <td>312.0</td>
       <td>0.29</td>
       <td>32.86</td>
+      <td>42.85</td>
       <td>95.70</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690522T&g_ti_cod=8291&c_ja_cod=6856" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690522T&g_ti_cod=8291&c_ja_cod=6856</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8291&g_ta_cod=8291" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8291&g_ta_cod=8291</a></td>
@@ -171,6 +212,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>11.9*</td>
       <td>18.1*</td>
       <td>65.0*</td>
+      <td>9.8*</td>
+      <td>12.7*</td>
+      <td>59.5*</td>
     </tr>
     <tr>
       <td>0</td>
@@ -179,8 +223,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Grenoble</td>
       <td>24.0</td>
       <td>12.65</td>
+      <td>86.0</td>
       <td>0.34</td>
       <td>33.33</td>
+      <td>8.33</td>
       <td>83.33</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0381513N&g_ti_cod=4961&c_ja_cod=3696" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0381513N&g_ti_cod=4961&c_ja_cod=3696</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4961&g_ta_cod=4961" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4961&g_ta_cod=4961</a></td>
@@ -188,6 +234,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat filles<br>Internat garçons<br>Internat obligatoire</td>
       <td>Langue vivante 1 : ANGLAIS<br>Langue vivante 2 : Pas de LV2<br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>MP ou PSI</td>
       <td>Lycée sous la tutelle du ministère de la défense. Les étudiants préparent les concours des Grandes Écoles de la Défense (École de l'Air, ESM de Saint CYR, École Navale, ENSTA et IMI). Le régime obligatoire pour tous est l'internat.Les frais de scolarité et d'internat sont pris en charge sous certaines conditions par l'État dans le cadre d'un CONTRAT D'ÉDUCATION, à signer pour les candidats retenus. TRÈS IMPORTANT : l'admission en CPGE d'un lycée militaire est soumise à l'obtention d'un certificat d'aptitude délivré par un médecin du service de santé des armées exclusivement. La liste des centres médicaux militaires et les imprimés nécessaires sont disponibles sur le site de l'école : www.ecoledespupillesdelair.frUne fois complétés par le médecin militaire, adresser impérativement une copie de l'imprimé 620-4*/12 à l'école des pupilles de l'air avant le 02 avril 2020. Les deux autres imprimés étant à apporter le jour de la rentrée pour les candidats admis.  La circulaire n° 35/ARM/DRHAA/SDEF/EPA749/CDT/BE du 2 avril 2019, relative à l'admission dans les classes préparatoires à l'enseignement supérieur et aux grandes écoles de l'École des Pupilles de l'air 2020/2021 est disponible sur le site : wwwecoledespupillesdelair.frPour information: l'École des pupilles de l'air a signé une convention avec l'Université GRENOBLE ALPES de GRENOBLE (U.G.A).</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -199,8 +248,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>94.0</td>
       <td>12.93</td>
+      <td>344.0</td>
       <td>0.36</td>
       <td>32.98</td>
+      <td>61.70</td>
       <td>94.67</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9467&g_ta_cod=9467" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9467&g_ta_cod=9467</a></td>
@@ -211,6 +262,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>19.1</td>
       <td>23</td>
       <td>65.3</td>
+      <td>10.6</td>
+      <td>13.2</td>
+      <td>75.3</td>
     </tr>
     <tr>
       <td>0</td>
@@ -219,8 +273,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Bordeaux</td>
       <td>144.0</td>
       <td>13.45</td>
+      <td>468.0</td>
       <td>0.36</td>
       <td>40.97</td>
+      <td>85.41</td>
       <td>75.69</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330021U&g_ti_cod=4271&c_ja_cod=3050" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330021U&g_ti_cod=4271&c_ja_cod=3050</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4271&g_ta_cod=4271" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4271&g_ta_cod=4271</a></td>
@@ -231,6 +287,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>3</td>
       <td>6.3</td>
       <td>22.4</td>
+      <td>1.4</td>
+      <td>3.6</td>
+      <td>37.4</td>
     </tr>
     <tr>
       <td>0</td>
@@ -239,8 +298,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nice</td>
       <td>96.0</td>
       <td>13.98</td>
+      <td>325.0</td>
       <td>0.40</td>
       <td>31.58</td>
+      <td>84.20</td>
       <td>83.16</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060030A&g_ti_cod=2206&c_ja_cod=1144" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060030A&g_ti_cod=2206&c_ja_cod=1144</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2206&g_ta_cod=2206" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2206&g_ta_cod=2206</a></td>
@@ -251,6 +312,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>2.9</td>
       <td>6.1</td>
       <td>27.9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>15.5</td>
     </tr>
     <tr>
       <td>0</td>
@@ -259,8 +323,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Montpellier</td>
       <td>96.0</td>
       <td>13.98</td>
+      <td>415.0</td>
       <td>0.31</td>
       <td>18.95</td>
+      <td>89.47</td>
       <td>83.16</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340038G&g_ti_cod=4481&c_ja_cod=3245" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340038G&g_ti_cod=4481&c_ja_cod=3245</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4481&g_ta_cod=4481" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4481&g_ta_cod=4481</a></td>
@@ -271,6 +337,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>2.8</td>
       <td>4.7</td>
       <td>23.8</td>
+      <td>0.2</td>
+      <td>1.2</td>
+      <td>18.2</td>
     </tr>
     <tr>
       <td>0</td>
@@ -279,8 +348,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>144.0</td>
       <td>14.71</td>
+      <td>530.0</td>
       <td>0.35</td>
       <td>21.13</td>
+      <td>68.30</td>
       <td>91.55</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440021J&g_ti_cod=5421&c_ja_cod=4134" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440021J&g_ti_cod=5421&c_ja_cod=4134</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5421&g_ta_cod=5421" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5421&g_ta_cod=5421</a></td>
@@ -291,6 +362,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>2.3*</td>
       <td>6.2*</td>
       <td>26.2*</td>
+      <td>0.6*</td>
+      <td>1.5*</td>
+      <td>25.0*</td>
     </tr>
     <tr>
       <td>1</td>
@@ -299,8 +373,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>84.0</td>
       <td>17.02</td>
+      <td>381.0</td>
       <td>0.28</td>
       <td>36.14</td>
+      <td>87.80</td>
       <td>82.92</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10859&g_ta_cod=10859" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10859&g_ta_cod=10859</a></td>
@@ -311,6 +387,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>12.1</td>
       <td>19.2</td>
       <td>69.6</td>
+      <td>0.4</td>
+      <td>2.1</td>
+      <td>35.6</td>
     </tr>
     <tr>
       <td>1</td>
@@ -319,8 +398,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>96.0</td>
       <td>17.36</td>
+      <td>894.0</td>
       <td>0.13</td>
       <td>53.19</td>
+      <td>77.66</td>
       <td>80.84</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750667T&g_ti_cod=8998&c_ja_cod=7546" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750667T&g_ti_cod=8998&c_ja_cod=7546</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8998&g_ta_cod=8998" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8998&g_ta_cod=8998</a></td>
@@ -331,6 +412,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.8</td>
       <td>3.3</td>
       <td>18</td>
+      <td>1.5</td>
+      <td>3</td>
+      <td>44.8</td>
     </tr>
     <tr>
       <td>1</td>
@@ -339,8 +423,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>96.0</td>
       <td>17.51</td>
+      <td>832.0</td>
       <td>0.15</td>
       <td>9.38</td>
+      <td>91.58</td>
       <td>74.73</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750652B&g_ti_cod=8960&c_ja_cod=7508" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750652B&g_ti_cod=8960&c_ja_cod=7508</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8960&g_ta_cod=8960" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8960&g_ta_cod=8960</a></td>
@@ -351,6 +437,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.5</td>
       <td>4.2</td>
       <td>24.3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>1</td>
@@ -359,8 +448,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Créteil</td>
       <td>96.0</td>
       <td>18.21</td>
+      <td>411.0</td>
       <td>0.30</td>
       <td>32.29</td>
+      <td>91.66</td>
       <td>67.70</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0940120V&g_ti_cod=11391&c_ja_cod=9839" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0940120V&g_ti_cod=11391&c_ja_cod=9839</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11391&g_ta_cod=11391" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11391&g_ta_cod=11391</a></td>
@@ -371,6 +462,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>2.3</td>
       <td>5.2</td>
       <td>25.2</td>
+      <td>0.5</td>
+      <td>2</td>
+      <td>24.8</td>
     </tr>
     <tr>
       <td>1</td>
@@ -379,8 +473,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>240.0</td>
       <td>18.91</td>
+      <td>1205.0</td>
       <td>0.24</td>
       <td>24.79</td>
+      <td>54.43</td>
       <td>92.39</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750658H&g_ti_cod=8982&c_ja_cod=7530" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750658H&g_ti_cod=8982&c_ja_cod=7530</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8982&g_ta_cod=8982" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8982&g_ta_cod=8982</a></td>
@@ -391,6 +487,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>5.4*</td>
       <td>11.0*</td>
       <td>36.5*</td>
+      <td>1.9*</td>
+      <td>3.6*</td>
+      <td>40.0*</td>
     </tr>
     <tr>
       <td>1</td>
@@ -399,8 +498,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Toulouse</td>
       <td>48.0</td>
       <td>19.32</td>
+      <td>433.0</td>
       <td>0.13</td>
       <td>26.67</td>
+      <td>82.22</td>
       <td>64.44</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310038Y&g_ti_cod=4042&c_ja_cod=2827" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310038Y&g_ti_cod=4042&c_ja_cod=2827</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4042&g_ta_cod=4042" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4042&g_ta_cod=4042</a></td>
@@ -411,6 +512,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>1.8</td>
       <td>4.6</td>
+      <td>0.4</td>
+      <td>0.9</td>
+      <td>15.6</td>
     </tr>
     <tr>
       <td>1</td>
@@ -419,8 +523,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nancy-Metz</td>
       <td>96.0</td>
       <td>21.34</td>
+      <td>521.0</td>
       <td>0.24</td>
       <td>39.80</td>
+      <td>45.91</td>
       <td>88.77</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0540038Y&g_ti_cod=6245&c_ja_cod=4910" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0540038Y&g_ti_cod=6245&c_ja_cod=4910</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6245&g_ta_cod=6245" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6245&g_ta_cod=6245</a></td>
@@ -431,6 +537,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>2.1</td>
       <td>4.8</td>
       <td>19.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4.2</td>
     </tr>
     <tr>
       <td>1</td>
@@ -439,8 +548,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>144.0</td>
       <td>21.69</td>
+      <td>539.0</td>
       <td>0.32</td>
       <td>36.11</td>
+      <td>84.61</td>
       <td>85.31</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590119J&g_ti_cod=6780&c_ja_cod=5421" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590119J&g_ti_cod=6780&c_ja_cod=5421</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6780&g_ta_cod=6780" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6780&g_ta_cod=6780</a></td>
@@ -451,6 +562,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.3</td>
       <td>2.3</td>
       <td>14.4</td>
+      <td>2.5</td>
+      <td>4.4</td>
+      <td>58.1</td>
     </tr>
     <tr>
       <td>1</td>
@@ -459,8 +573,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>90.0</td>
       <td>21.72</td>
+      <td>519.0</td>
       <td>0.22</td>
       <td>26.67</td>
+      <td>91.00</td>
       <td>80.89</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11004&g_ta_cod=11004" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11004&g_ta_cod=11004</a></td>
@@ -471,6 +587,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>5.2*</td>
       <td>6.5*</td>
       <td>39.7*</td>
+      <td>0.0*</td>
+      <td>0.5*</td>
+      <td>39.8*</td>
     </tr>
     <tr>
       <td>1</td>
@@ -479,8 +598,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Toulouse</td>
       <td>24.0</td>
       <td>23.18</td>
+      <td>194.0</td>
       <td>0.15</td>
       <td>8.33</td>
+      <td>73.91</td>
       <td>73.91</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0810959C&g_ti_cod=10281&c_ja_cod=8789" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0810959C&g_ti_cod=10281&c_ja_cod=8789</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10281&g_ta_cod=10281" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10281&g_ta_cod=10281</a></td>
@@ -491,6 +612,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.9*</td>
       <td>1.8*</td>
       <td>10.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>1</td>
@@ -499,8 +623,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>96.0</td>
       <td>23.32</td>
+      <td>820.0</td>
       <td>0.15</td>
       <td>27.96</td>
+      <td>65.58</td>
       <td>67.73</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8550&g_ta_cod=8550" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8550&g_ta_cod=8550</a></td>
@@ -511,6 +637,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>2.3*</td>
       <td>12.5*</td>
+      <td>0.5*</td>
+      <td>0.7*</td>
+      <td>8.6*</td>
     </tr>
     <tr>
       <td>1</td>
@@ -519,8 +648,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>48.0</td>
       <td>25.25</td>
+      <td>486.0</td>
       <td>0.14</td>
       <td>0.00</td>
+      <td>79.16</td>
       <td>62.50</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920149M&g_ti_cod=11022&c_ja_cod=9491" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920149M&g_ti_cod=11022&c_ja_cod=9491</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11022&g_ta_cod=11022" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11022&g_ta_cod=11022</a></td>
@@ -531,6 +662,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>1.9</td>
       <td>15.4</td>
+      <td>0</td>
+      <td>0.6</td>
+      <td>21.8</td>
     </tr>
     <tr>
       <td>2</td>
@@ -539,8 +673,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Limoges</td>
       <td>48.0</td>
       <td>25.41</td>
+      <td>291.0</td>
       <td>0.21</td>
       <td>17.02</td>
+      <td>52.17</td>
       <td>56.52</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0870015U&g_ti_cod=10660&c_ja_cod=9150" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0870015U&g_ti_cod=10660&c_ja_cod=9150</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10660&g_ta_cod=10660" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10660&g_ta_cod=10660</a></td>
@@ -551,6 +687,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.2</td>
       <td>4.1</td>
       <td>11.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2.2</td>
     </tr>
     <tr>
       <td>2</td>
@@ -559,8 +698,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>33.0</td>
       <td>25.70</td>
+      <td>157.0</td>
       <td>0.25</td>
       <td>42.42</td>
+      <td>33.33</td>
       <td>54.54</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3791&g_ta_cod=3791" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3791&g_ta_cod=3791</a></td>
@@ -568,6 +709,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>NaN</td>
       <td>Langue vivante 1 : Anglais<br>Langue vivante 2 : Pas de LV2<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP</td>
       <td>1. AIDE AU RECRUTEMENT ECOLES D'OFFICIERS et INGENIEURS MILITAIRES : le lycée naval, lycée sous tutelle du Ministère des Armées, permet à tout jeune français de préparer dans les meilleures conditions, les concours des grandes écoles militaires : Ecole Navale, ESM St Cyr, Ecole de l'Air, ENSTA (Brest) et ENSIM (partenariat avec les Arts et Métiers d'Angers). Les frais de scolarité et d'internat sont pris en charge par l'Etat dans le cadre d'un contrat d'éducation favorisant l'aide au recrutement dans les écoles militaires citées. Les circulaires d'admission en CPGE, CPES pour l'année scolaire 2021-2022 sont à consulter à partir de janvier sur le site du lycée naval : http://www.defense.gouv.fr/marine/ressources-humaines/ecoles-et-formations/lycee-naval/le-lycee-naval.Attention : Prendre rendez-vous auprès d'un médecin militaire (liste disponible auprès des CIRFA) pour compléter le certificat médico-administratif  d'aptitude initiale en ligne (à adresser au lycée avant le 1 er mai 2021). 2. AIDE AU RECRUTEMENT SOUS-OFFICIERS DE LA MARINE NATIONALE (Officiers mariniers) : le lycée naval propose aux étudiants, motivés par une carrière dans la Marine nationale, de suivre une formation BTS au Lycée VAUBAN de Brest et d'être hébergés au Lycée naval (internat permanent) en vue d'une intégration à l'Ecole de Maistrance (CIN de Brest). Le Lycée naval apporte dans ce partenariat une aide aux devoirs, une acculturation progressive à la Marine ainsi qu'une promesse d'engagement sous réserve de succès au BTS et de respect des normes minimales requises pour un engagement dans la Marine.Les BTS proposés sont les suivants : CRSA (Conception et réal. de syst. aut.), MCI (Moteur à combustion int.), SN (Syst. numériques options IR et EC), Electrotechnique.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -579,8 +723,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Grenoble</td>
       <td>144.0</td>
       <td>26.35</td>
+      <td>724.0</td>
       <td>0.21</td>
       <td>51.43</td>
+      <td>72.14</td>
       <td>78.56</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0380027Y&g_ti_cod=4920&c_ja_cod=3657" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0380027Y&g_ti_cod=4920&c_ja_cod=3657</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4920&g_ta_cod=4920" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4920&g_ta_cod=4920</a></td>
@@ -591,6 +737,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.6</td>
       <td>4.5</td>
       <td>18.3</td>
+      <td>0</td>
+      <td>0.9</td>
+      <td>15.8</td>
     </tr>
     <tr>
       <td>2</td>
@@ -599,8 +748,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rouen</td>
       <td>96.0</td>
       <td>26.39</td>
+      <td>494.0</td>
       <td>0.30</td>
       <td>12.63</td>
+      <td>65.95</td>
       <td>79.78</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760090K&g_ti_cod=9586&c_ja_cod=8117" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760090K&g_ti_cod=9586&c_ja_cod=8117</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9586&g_ta_cod=9586" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9586&g_ta_cod=9586</a></td>
@@ -611,6 +762,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.1*</td>
       <td>2.5*</td>
       <td>16.1*</td>
+      <td>0.5*</td>
+      <td>0.9*</td>
+      <td>27.7*</td>
     </tr>
     <tr>
       <td>2</td>
@@ -619,8 +773,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>96.0</td>
       <td>26.81</td>
+      <td>1194.0</td>
       <td>0.11</td>
       <td>0.00</td>
+      <td>87.09</td>
       <td>56.98</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750660K&g_ti_cod=8986&c_ja_cod=7534" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750660K&g_ti_cod=8986&c_ja_cod=7534</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8986&g_ta_cod=8986" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8986&g_ta_cod=8986</a></td>
@@ -631,6 +787,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.3</td>
       <td>3.8</td>
       <td>12.3</td>
+      <td>0.0*</td>
+      <td>2.0*</td>
+      <td>38.2*</td>
     </tr>
     <tr>
       <td>2</td>
@@ -639,8 +798,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>144.0</td>
       <td>29.13</td>
+      <td>802.0</td>
       <td>0.23</td>
       <td>33.80</td>
+      <td>58.45</td>
       <td>80.98</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4671&g_ta_cod=4671" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4671&g_ta_cod=4671</a></td>
@@ -651,6 +812,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.7*</td>
       <td>6.0*</td>
       <td>22.4*</td>
+      <td>0.0*</td>
+      <td>1.6*</td>
+      <td>21.3*</td>
     </tr>
     <tr>
       <td>2</td>
@@ -659,8 +823,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>144.0</td>
       <td>29.43</td>
+      <td>1641.0</td>
       <td>0.13</td>
       <td>5.00</td>
+      <td>88.48</td>
       <td>46.04</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750663N&g_ti_cod=8991&c_ja_cod=7539" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750663N&g_ti_cod=8991&c_ja_cod=7539</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8991&g_ta_cod=8991" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8991&g_ta_cod=8991</a></td>
@@ -671,6 +837,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.2</td>
       <td>2.6</td>
       <td>9.5</td>
+      <td>0.4</td>
+      <td>1.3</td>
+      <td>27.1</td>
     </tr>
     <tr>
       <td>2</td>
@@ -679,8 +848,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Clermont-Ferrand</td>
       <td>36.0</td>
       <td>29.93</td>
+      <td>258.0</td>
       <td>0.18</td>
       <td>35.90</td>
+      <td>97.42</td>
       <td>30.77</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630021F&g_ti_cod=7562&c_ja_cod=6163" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630021F&g_ti_cod=7562&c_ja_cod=6163</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7562&g_ta_cod=7562" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7562&g_ta_cod=7562</a></td>
@@ -691,6 +862,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.8</td>
       <td>1.7</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>2</td>
@@ -699,8 +873,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>30.70</td>
+      <td>525.0</td>
       <td>0.12</td>
       <td>20.83</td>
+      <td>87.50</td>
       <td>43.75</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330023W&g_ti_cod=4278&c_ja_cod=3057" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330023W&g_ti_cod=4278&c_ja_cod=3057</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4278&g_ta_cod=4278" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4278&g_ta_cod=4278</a></td>
@@ -711,6 +887,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>2</td>
@@ -719,8 +898,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>72.0</td>
       <td>32.67</td>
+      <td>312.0</td>
       <td>0.27</td>
       <td>15.49</td>
+      <td>35.71</td>
       <td>30.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0780015T&g_ti_cod=9954&c_ja_cod=8470" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0780015T&g_ti_cod=9954&c_ja_cod=8470</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9954&g_ta_cod=9954" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9954&g_ta_cod=9954</a></td>
@@ -731,6 +912,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>2</td>
@@ -739,8 +923,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Créteil</td>
       <td>70.0</td>
       <td>32.72</td>
+      <td>393.0</td>
       <td>0.18</td>
       <td>23.73</td>
+      <td>75.00</td>
       <td>25.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0930830X&g_ti_cod=11200&c_ja_cod=9655" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0930830X&g_ti_cod=11200&c_ja_cod=9655</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11200&g_ta_cod=11200" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11200&g_ta_cod=11200</a></td>
@@ -748,6 +934,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
       <td>Langue vivante 1 : Anglais, Allemand<br>Langue vivante 2 : Anglais, Allemand, Espagnol<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP, MP*,PSI</td>
       <td>Dans un cadre agréable, au cœur d'une ville bien reliée au système régional et local de transports, le Lycée Albert Schweitzer du Raincy est le plus grand pôle de CPGE et de BTS du nord-est de l'agglomération parisienne. Il assure à ses étudiants un enseignement de grande  qualité et l'acquisition de méthodes de travail effiaces. Les effectifs, raisonnables, permettent un encadrement attentif, un dialogue constructif et un suivi personnalisé pour chacun. L'hébergement en internat est possible par convention avec un établissement de proximité.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -759,8 +948,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>192.0</td>
       <td>32.72</td>
+      <td>1904.0</td>
       <td>0.12</td>
       <td>12.77</td>
+      <td>67.02</td>
       <td>70.73</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750699C&g_ti_cod=9130&c_ja_cod=7675" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750699C&g_ti_cod=9130&c_ja_cod=7675</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9130&g_ta_cod=9130" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9130&g_ta_cod=9130</a></td>
@@ -771,6 +962,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.5</td>
       <td>3.2</td>
       <td>18.5</td>
+      <td>0.9</td>
+      <td>1.9</td>
+      <td>29</td>
     </tr>
     <tr>
       <td>3</td>
@@ -779,8 +973,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>144.0</td>
       <td>32.87</td>
+      <td>717.0</td>
       <td>0.26</td>
       <td>29.17</td>
+      <td>61.11</td>
       <td>72.22</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0370035M&g_ti_cod=4823&c_ja_cod=3562" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0370035M&g_ti_cod=4823&c_ja_cod=3562</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4823&g_ta_cod=4823" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4823&g_ta_cod=4823</a></td>
@@ -791,6 +987,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.2</td>
       <td>5.3</td>
       <td>16.7</td>
+      <td>0.2</td>
+      <td>0.7</td>
+      <td>12</td>
     </tr>
     <tr>
       <td>3</td>
@@ -799,8 +998,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Strasbourg</td>
       <td>192.0</td>
       <td>33.00</td>
+      <td>798.0</td>
       <td>0.29</td>
       <td>23.53</td>
+      <td>69.94</td>
       <td>74.31</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7916&g_ta_cod=7916" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7916&g_ta_cod=7916</a></td>
@@ -811,6 +1012,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.8</td>
       <td>5</td>
       <td>18.9</td>
+      <td>0</td>
+      <td>0.3</td>
+      <td>13.2</td>
     </tr>
     <tr>
       <td>3</td>
@@ -819,8 +1023,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aix-Marseille</td>
       <td>56.0</td>
       <td>33.57</td>
+      <td>333.0</td>
       <td>0.24</td>
       <td>20.00</td>
+      <td>24.07</td>
       <td>50.00</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2653&g_ta_cod=2653" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2653&g_ta_cod=2653</a></td>
@@ -828,6 +1034,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat filles<br>Internat garçons<br>Internat obligatoire</td>
       <td>Langue vivante 1 : ANGLAIS OBLIGATOIRE<br>Langue vivante 2 : ESPAGNOL/ALLEMAND<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP et PSI</td>
       <td>Lycée sous tutelle du Ministère des armées. Les étudiants préparent les concours des Grandes Écoles de la Défense (ESM St CYR, École de l'AIR, École NAVALE, ENSTA, IMI). Le régime obligatoire pour tous est l'internat, les frais de scolarité et d'internat sont pris en charge par l'État dans le cadre d'un contrat d'éducation. Prendre connaissance de la circulaire relative à l'admission en CPGE et en CPES en lycées de la Défense à l'adresse INTERNET :  https://rh-terre.defense.gouv.fr   URGENT : Prendre RDV auprès d'un médecin militaire  pour remplir le certificat d'aptitude.  Complétez la rubrique "date de votre RDV auprès d'un médecin militaire" sur PARCOURSUP. La liste des centres médicaux sur https://rh-terre.defense.gouv.fr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -839,8 +1048,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>48.0</td>
       <td>35.03</td>
+      <td>752.0</td>
       <td>0.10</td>
       <td>0.00</td>
+      <td>91.48</td>
       <td>40.42</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920145H&g_ti_cod=11012&c_ja_cod=9481" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920145H&g_ti_cod=11012&c_ja_cod=9481</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11012&g_ta_cod=11012" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11012&g_ta_cod=11012</a></td>
@@ -851,6 +1062,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>8.9</td>
+      <td>1</td>
+      <td>4.4</td>
+      <td>51</td>
     </tr>
     <tr>
       <td>3</td>
@@ -859,8 +1073,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>48.0</td>
       <td>35.25</td>
+      <td>890.0</td>
       <td>0.08</td>
       <td>6.52</td>
+      <td>86.95</td>
       <td>19.56</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750693W&g_ti_cod=9114&c_ja_cod=7659" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750693W&g_ti_cod=9114&c_ja_cod=7659</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9114&g_ta_cod=9114" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9114&g_ta_cod=9114</a></td>
@@ -871,6 +1087,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3.3</td>
     </tr>
     <tr>
       <td>3</td>
@@ -879,8 +1098,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Montpellier</td>
       <td>48.0</td>
       <td>35.30</td>
+      <td>377.0</td>
       <td>0.15</td>
       <td>39.58</td>
+      <td>93.33</td>
       <td>35.55</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300021K&g_ti_cod=3926&c_ja_cod=2720" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300021K&g_ti_cod=3926&c_ja_cod=2720</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3926&g_ta_cod=3926" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3926&g_ta_cod=3926</a></td>
@@ -891,6 +1112,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>1.9*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
     </tr>
     <tr>
       <td>3</td>
@@ -899,8 +1123,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>48.0</td>
       <td>36.19</td>
+      <td>633.0</td>
       <td>0.11</td>
       <td>0.00</td>
+      <td>93.47</td>
       <td>8.70</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9001&g_ta_cod=9001" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9001&g_ta_cod=9001</a></td>
@@ -911,6 +1137,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0.7</td>
+      <td>6.2</td>
     </tr>
     <tr>
       <td>3</td>
@@ -919,8 +1148,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Clermont-Ferrand</td>
       <td>96.0</td>
       <td>36.42</td>
+      <td>693.0</td>
       <td>0.17</td>
       <td>37.89</td>
+      <td>47.87</td>
       <td>64.89</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630018C&g_ti_cod=7545&c_ja_cod=6146" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630018C&g_ti_cod=7545&c_ja_cod=6146</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7545&g_ta_cod=7545" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7545&g_ta_cod=7545</a></td>
@@ -931,6 +1162,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.8</td>
       <td>3.2</td>
       <td>12.2</td>
+      <td>0</td>
+      <td>1</td>
+      <td>12.7</td>
     </tr>
     <tr>
       <td>3</td>
@@ -939,8 +1173,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Dijon</td>
       <td>30.0</td>
       <td>38.77</td>
+      <td>214.0</td>
       <td>0.15</td>
       <td>32.14</td>
+      <td>19.23</td>
       <td>19.23</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0711064W&g_ti_cod=8648&c_ja_cod=7208" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0711064W&g_ti_cod=8648&c_ja_cod=7208</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8648&g_ta_cod=8648" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8648&g_ta_cod=8648</a></td>
@@ -948,6 +1184,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat mixte<br>Internat obligatoire</td>
       <td>Langue vivante 1 : anglais<br>Langue vivante 2 : allemand, espagnol,<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>idem</td>
       <td>Lycée sous la tutelle du ministère de la Défense. Les étudiants préparent les concours des grandes écoles militaires. Les étudiants sont tous internes. Les candidats sont invités à se rendre sur le site https://rh-terre.defense.gouv.fr pour retirer la circulaire d'admission spécifique aux lycées militaires - Les candidats en CPES et/ou en CPGE doivent obligatoirement passer une visite médicale auprès d'un médecin militaire d'active (l'attention est attirée sur l'urgence de prendre un rendez-vous car les délais peuvent être assez longs).</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -959,8 +1198,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>72.0</td>
       <td>38.78</td>
+      <td>323.0</td>
       <td>0.28</td>
       <td>32.88</td>
+      <td>31.43</td>
       <td>45.71</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0720896H&g_ti_cod=8732&c_ja_cod=7290" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0720896H&g_ti_cod=8732&c_ja_cod=7290</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8732&g_ta_cod=8732" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8732&g_ta_cod=8732</a></td>
@@ -968,6 +1209,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat filles<br>Internat garçons<br>Internat obligatoire</td>
       <td>Langue vivante 1 : ANGLAIS<br>Langue vivante 2 : Facultative :ALLEMAND, ESPAGNOL<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP*, MP, PSI</td>
       <td>Lycée sous tutelle du Ministère des Armées. Les étudiants préparent les concours d'entrée dans les grandes écoles militaires  (ESM St CYR, École de l'AIR, École NAVALE, ENSTA, IMI, Ecole Polytechnique en filière MP*)et les grandes écoles civiles. Le régime obligatoire pour tous est l'internat, les frais de scolarité et d'internat sont pris en charge par l'État dans le cadre d'un contrat d'éducation. Prendre connaissance de la circulaire relative à l'admission en CPGE et en CPES en lycées de la Défense à l'adresse INTERNET : https://rh-terre.defense.gouv.fr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -979,8 +1223,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>35.0</td>
       <td>38.88</td>
+      <td>166.0</td>
       <td>0.12</td>
       <td>61.90</td>
+      <td>88.23</td>
       <td>11.76</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782539L&g_ti_cod=10025&c_ja_cod=8538" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782539L&g_ti_cod=10025&c_ja_cod=8538</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10025&g_ta_cod=10025" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10025&g_ta_cod=10025</a></td>
@@ -991,6 +1237,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>3</td>
@@ -999,8 +1248,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aix-Marseille</td>
       <td>48.0</td>
       <td>39.39</td>
+      <td>546.0</td>
       <td>0.11</td>
       <td>42.55</td>
+      <td>77.77</td>
       <td>60.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130002G&g_ti_cod=2527&c_ja_cod=1431" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130002G&g_ti_cod=2527&c_ja_cod=1431</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2527&g_ta_cod=2527" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2527&g_ta_cod=2527</a></td>
@@ -1011,6 +1262,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>2.4*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>3.8*</td>
     </tr>
     <tr>
       <td>3</td>
@@ -1019,8 +1273,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>48.0</td>
       <td>40.20</td>
+      <td>607.0</td>
       <td>0.08</td>
       <td>17.95</td>
+      <td>76.31</td>
       <td>13.16</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9127&g_ta_cod=9127" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9127&g_ta_cod=9127</a></td>
@@ -1031,6 +1287,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>9.6</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1039,8 +1298,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aix-Marseille</td>
       <td>144.0</td>
       <td>40.30</td>
+      <td>872.0</td>
       <td>0.19</td>
       <td>38.30</td>
+      <td>78.72</td>
       <td>51.06</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130040Y&g_ti_cod=2546&c_ja_cod=1450" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130040Y&g_ti_cod=2546&c_ja_cod=1450</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2546&g_ta_cod=2546" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2546&g_ta_cod=2546</a></td>
@@ -1051,6 +1312,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>1.5</td>
       <td>4.2</td>
       <td>17.8</td>
+      <td>0.9</td>
+      <td>2.7</td>
+      <td>35.2</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1059,8 +1323,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>41.31</td>
+      <td>440.0</td>
       <td>0.16</td>
       <td>0.00</td>
+      <td>72.91</td>
       <td>20.83</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7704&g_ta_cod=7704" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7704&g_ta_cod=7704</a></td>
@@ -1071,6 +1337,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.6</td>
       <td>1.2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.5</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1079,8 +1348,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>40.0</td>
       <td>42.20</td>
+      <td>368.0</td>
       <td>0.14</td>
       <td>2.70</td>
+      <td>82.84</td>
       <td>14.29</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11561&g_ta_cod=11561" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11561&g_ta_cod=11561</a></td>
@@ -1091,6 +1362,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1099,8 +1373,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>78.0</td>
       <td>42.37</td>
+      <td>597.0</td>
       <td>0.15</td>
       <td>1.30</td>
+      <td>92.20</td>
       <td>32.46</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0753873C&g_ti_cod=9474&c_ja_cod=8008" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0753873C&g_ti_cod=9474&c_ja_cod=8008</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9474&g_ta_cod=9474" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9474&g_ta_cod=9474</a></td>
@@ -1111,6 +1387,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>1</td>
       <td>9.2</td>
+      <td>0</td>
+      <td>2</td>
+      <td>38.2</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1119,8 +1398,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Amiens</td>
       <td>96.0</td>
       <td>42.90</td>
+      <td>444.0</td>
       <td>0.20</td>
       <td>17.28</td>
+      <td>81.00</td>
       <td>36.70</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0800009A&g_ti_cod=10150&c_ja_cod=8661" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0800009A&g_ti_cod=10150&c_ja_cod=8661</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10150&g_ta_cod=10150" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10150&g_ta_cod=10150</a></td>
@@ -1131,6 +1412,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.6</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1139,8 +1423,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Reims</td>
       <td>96.0</td>
       <td>43.39</td>
+      <td>528.0</td>
       <td>0.26</td>
       <td>16.84</td>
+      <td>76.83</td>
       <td>44.20</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6057&g_ta_cod=6057" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6057&g_ta_cod=6057</a></td>
@@ -1151,6 +1437,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.4</td>
       <td>0.8</td>
       <td>4.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1159,8 +1448,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>48.0</td>
       <td>43.77</td>
+      <td>594.0</td>
       <td>0.11</td>
       <td>0.00</td>
+      <td>82.92</td>
       <td>2.44</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750685M&g_ti_cod=9070&c_ja_cod=7616" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750685M&g_ti_cod=9070&c_ja_cod=7616</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9070&g_ta_cod=9070" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9070&g_ta_cod=9070</a></td>
@@ -1171,6 +1462,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>0.9*</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1179,8 +1473,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>48.0</td>
       <td>44.46</td>
+      <td>894.0</td>
       <td>0.07</td>
       <td>0.00</td>
+      <td>48.77</td>
       <td>31.71</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690082P&g_ti_cod=8235&c_ja_cod=6803" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690082P&g_ti_cod=8235&c_ja_cod=6803</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8235&g_ta_cod=8235" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8235&g_ta_cod=8235</a></td>
@@ -1191,6 +1487,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.7</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1199,8 +1498,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>45.0</td>
       <td>45.03</td>
+      <td>394.0</td>
       <td>0.14</td>
       <td>17.78</td>
+      <td>72.72</td>
       <td>38.63</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920904H&g_ti_cod=11048&c_ja_cod=9515" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920904H&g_ti_cod=11048&c_ja_cod=9515</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11048&g_ta_cod=11048" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11048&g_ta_cod=11048</a></td>
@@ -1211,6 +1512,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.6</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1219,8 +1523,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nancy-Metz</td>
       <td>30.0</td>
       <td>45.25</td>
+      <td>162.0</td>
       <td>0.11</td>
       <td>50.00</td>
+      <td>64.70</td>
       <td>17.64</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0570029X&g_ti_cod=6517&c_ja_cod=5173" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0570029X&g_ti_cod=6517&c_ja_cod=5173</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6517&g_ta_cod=6517" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6517&g_ta_cod=6517</a></td>
@@ -1231,6 +1537,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>1</td>
       <td>1</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1239,8 +1548,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Reims</td>
       <td>48.0</td>
       <td>45.30</td>
+      <td>207.0</td>
       <td>0.23</td>
       <td>80.49</td>
+      <td>77.50</td>
       <td>22.50</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0100022V&g_ti_cod=2405&c_ja_cod=1315" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0100022V&g_ti_cod=2405&c_ja_cod=1315</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2405&g_ta_cod=2405" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2405&g_ta_cod=2405</a></td>
@@ -1251,6 +1562,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.7</td>
       <td>0.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>4</td>
@@ -1259,8 +1573,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nancy-Metz</td>
       <td>96.0</td>
       <td>46.76</td>
+      <td>562.0</td>
       <td>0.21</td>
       <td>36.84</td>
+      <td>82.97</td>
       <td>61.70</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0570054Z&g_ti_cod=6525&c_ja_cod=5180" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0570054Z&g_ti_cod=6525&c_ja_cod=5180</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6525&g_ta_cod=6525" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6525&g_ta_cod=6525</a></td>
@@ -1271,6 +1587,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.5</td>
       <td>1.8</td>
       <td>6.6</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>19.3</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1279,8 +1598,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>48.0</td>
       <td>47.24</td>
+      <td>205.0</td>
       <td>0.14</td>
       <td>20.00</td>
+      <td>85.70</td>
       <td>14.29</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0622949U&g_ti_cod=7460&c_ja_cod=6064" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0622949U&g_ti_cod=7460&c_ja_cod=6064</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7460&g_ta_cod=7460" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7460&g_ta_cod=7460</a></td>
@@ -1291,6 +1612,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1299,8 +1623,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Dijon</td>
       <td>144.0</td>
       <td>47.94</td>
+      <td>851.0</td>
       <td>0.22</td>
       <td>37.06</td>
+      <td>57.04</td>
       <td>47.18</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0210015C&g_ti_cod=3177&c_ja_cod=2014" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0210015C&g_ti_cod=3177&c_ja_cod=2014</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3177&g_ta_cod=3177" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3177&g_ta_cod=3177</a></td>
@@ -1311,6 +1637,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.8</td>
       <td>2.9</td>
       <td>8.4</td>
+      <td>0</td>
+      <td>1</td>
+      <td>10.3</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1319,8 +1648,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>96.0</td>
       <td>48.07</td>
+      <td>549.0</td>
       <td>0.19</td>
       <td>64.29</td>
+      <td>93.88</td>
       <td>67.34</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590221V&g_ti_cod=6841&c_ja_cod=5476" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590221V&g_ti_cod=6841&c_ja_cod=5476</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6841&g_ta_cod=6841" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6841&g_ta_cod=6841</a></td>
@@ -1331,6 +1662,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>1.4*</td>
       <td>3.6*</td>
+      <td>0.0*</td>
+      <td>0.4*</td>
+      <td>12.9*</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1339,8 +1673,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>48.0</td>
       <td>48.15</td>
+      <td>469.0</td>
       <td>0.14</td>
       <td>35.42</td>
+      <td>97.86</td>
       <td>59.57</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590063Y&g_ti_cod=6734&c_ja_cod=5378" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590063Y&g_ti_cod=6734&c_ja_cod=5378</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6734&g_ta_cod=6734" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6734&g_ta_cod=6734</a></td>
@@ -1351,6 +1687,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7.6</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1359,8 +1698,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Montpellier</td>
       <td>48.0</td>
       <td>48.35</td>
+      <td>323.0</td>
       <td>0.20</td>
       <td>19.15</td>
+      <td>97.81</td>
       <td>13.04</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0660010C&g_ti_cod=7844&c_ja_cod=6430" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0660010C&g_ti_cod=7844&c_ja_cod=6430</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7844&g_ta_cod=7844" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7844&g_ta_cod=7844</a></td>
@@ -1371,6 +1712,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>3.7</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>8.7</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1379,8 +1723,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>48.0</td>
       <td>48.72</td>
+      <td>515.0</td>
       <td>0.11</td>
       <td>4.35</td>
+      <td>100.00</td>
       <td>10.87</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782132U&g_ti_cod=10021&c_ja_cod=8534" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782132U&g_ti_cod=10021&c_ja_cod=8534</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10021&g_ta_cod=10021" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10021&g_ta_cod=10021</a></td>
@@ -1391,6 +1737,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>3.7</td>
+      <td>0</td>
+      <td>0.6</td>
+      <td>3.7</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1399,8 +1748,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Amiens</td>
       <td>48.0</td>
       <td>49.23</td>
+      <td>413.0</td>
       <td>0.18</td>
       <td>6.38</td>
+      <td>63.04</td>
       <td>21.74</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0600014P&g_ti_cod=7220&c_ja_cod=5834" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0600014P&g_ti_cod=7220&c_ja_cod=5834</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7220&g_ta_cod=7220" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7220&g_ta_cod=7220</a></td>
@@ -1411,6 +1762,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1419,8 +1773,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nice</td>
       <td>93.0</td>
       <td>49.24</td>
+      <td>521.0</td>
       <td>0.23</td>
       <td>2.15</td>
+      <td>83.69</td>
       <td>46.73</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2314&g_ta_cod=2314" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2314&g_ta_cod=2314</a></td>
@@ -1431,6 +1787,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.9*</td>
       <td>3.2*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>3.9*</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1439,8 +1798,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Poitiers</td>
       <td>96.0</td>
       <td>49.45</td>
+      <td>627.0</td>
       <td>0.22</td>
       <td>52.13</td>
+      <td>88.30</td>
       <td>28.72</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0860035W&g_ti_cod=10584&c_ja_cod=9076" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0860035W&g_ti_cod=10584&c_ja_cod=9076</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10584&g_ta_cod=10584" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10584&g_ta_cod=10584</a></td>
@@ -1451,6 +1812,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.3</td>
       <td>1.5</td>
       <td>4.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3.2</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1459,8 +1823,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>48.0</td>
       <td>49.80</td>
+      <td>249.0</td>
       <td>0.11</td>
       <td>3.70</td>
+      <td>34.78</td>
       <td>4.35</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0180005H&g_ti_cod=3089&c_ja_cod=1931" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0180005H&g_ti_cod=3089&c_ja_cod=1931</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3089&g_ta_cod=3089" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3089&g_ta_cod=3089</a></td>
@@ -1471,6 +1837,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1479,8 +1848,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Créteil</td>
       <td>24.0</td>
       <td>50.26</td>
+      <td>291.0</td>
       <td>0.12</td>
       <td>8.33</td>
+      <td>91.66</td>
       <td>0.00</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11189&g_ta_cod=11189" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11189&g_ta_cod=11189</a></td>
@@ -1491,6 +1862,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>5</td>
@@ -1499,8 +1873,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>96.0</td>
       <td>50.41</td>
+      <td>558.0</td>
       <td>0.19</td>
       <td>48.19</td>
+      <td>96.38</td>
       <td>46.98</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0290007A&g_ti_cod=3759&c_ja_cod=2563" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0290007A&g_ti_cod=3759&c_ja_cod=2563</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3759&g_ta_cod=3759" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3759&g_ta_cod=3759</a></td>
@@ -1511,6 +1887,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.5*</td>
       <td>1.3*</td>
       <td>6.1*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1519,8 +1898,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Toulouse</td>
       <td>24.0</td>
       <td>50.64</td>
+      <td>277.0</td>
       <td>0.15</td>
       <td>0.00</td>
+      <td>92.30</td>
       <td>26.92</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0120022J&g_ti_cod=17642&c_ja_cod=14190" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0120022J&g_ti_cod=17642&c_ja_cod=14190</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=17642&g_ta_cod=17642" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=17642&g_ta_cod=17642</a></td>
@@ -1531,6 +1912,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1539,8 +1923,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Guadeloupe</td>
       <td>45.0</td>
       <td>50.68</td>
+      <td>149.0</td>
       <td>0.39</td>
       <td>58.14</td>
+      <td>100.00</td>
       <td>44.18</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9710003B&g_ti_cod=11733&c_ja_cod=10170" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9710003B&g_ti_cod=11733&c_ja_cod=10170</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11733&g_ta_cod=11733" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11733&g_ta_cod=11733</a></td>
@@ -1548,6 +1934,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
       <td>Langue vivante 1 : Anglais - Espagnol<br>Langue vivante 2 : Espagnol - Anglais<br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>MP et  PSI</td>
       <td>Lycée de centre ville, proche de toute commodité. Internat d'excellence et restauration de qualité.Taux de réussite 2019:très bon.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1559,8 +1948,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Créteil</td>
       <td>35.0</td>
       <td>51.09</td>
+      <td>328.0</td>
       <td>0.16</td>
       <td>42.50</td>
+      <td>97.42</td>
       <td>23.07</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770933W&g_ti_cod=9808&c_ja_cod=8327" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770933W&g_ti_cod=9808&c_ja_cod=8327</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9808&g_ta_cod=9808" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9808&g_ta_cod=9808</a></td>
@@ -1571,6 +1962,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>4.1*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1579,8 +1973,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>48.0</td>
       <td>51.36</td>
+      <td>340.0</td>
       <td>0.18</td>
       <td>39.22</td>
+      <td>82.34</td>
       <td>50.98</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440163N&g_ti_cod=5492&c_ja_cod=4204" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440163N&g_ti_cod=5492&c_ja_cod=4204</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5492&g_ta_cod=5492" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5492&g_ta_cod=5492</a></td>
@@ -1591,6 +1987,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.6</td>
       <td>5.9</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>6.5</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1599,8 +1998,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>44.0</td>
       <td>52.89</td>
+      <td>302.0</td>
       <td>0.20</td>
       <td>11.36</td>
+      <td>100.00</td>
       <td>23.25</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10861&g_ta_cod=10861" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10861&g_ta_cod=10861</a></td>
@@ -1611,6 +2012,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>2.4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1619,8 +2023,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>48.0</td>
       <td>53.34</td>
+      <td>678.0</td>
       <td>0.10</td>
       <td>22.45</td>
+      <td>87.50</td>
       <td>43.75</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0491966W&g_ti_cod=5953&c_ja_cod=4631" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0491966W&g_ti_cod=5953&c_ja_cod=4631</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5953&g_ta_cod=5953" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5953&g_ta_cod=5953</a></td>
@@ -1631,6 +2037,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>1.4*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>3.1*</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1639,8 +2048,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>48.0</td>
       <td>53.59</td>
+      <td>515.0</td>
       <td>0.13</td>
       <td>12.50</td>
+      <td>93.61</td>
       <td>23.40</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6419&g_ta_cod=6419" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6419&g_ta_cod=6419</a></td>
@@ -1651,6 +2062,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.1</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1659,8 +2073,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>48.0</td>
       <td>53.85</td>
+      <td>112.0</td>
       <td>0.09</td>
       <td>81.82</td>
+      <td>20.00</td>
       <td>20.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0593117T&g_ti_cod=6988&c_ja_cod=5617" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0593117T&g_ti_cod=6988&c_ja_cod=5617</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6988&g_ta_cod=6988" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6988&g_ta_cod=6988</a></td>
@@ -1668,6 +2084,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aucun internat</td>
       <td>Langue vivante 1 : Anglais<br>Langue vivante 2 : Allemand, Espagnol, Japonais, Chinois, Italien, Portugais, ....<br>Niveau de français requis pour s'inscrire à la formation : B1<br>Classes de seconde année :  <br>Filières PC, PSI, MP</td>
       <td>Les élèves recrutés par cette voie ainsi que ceux recrutés par Puissance Alpha, pourront être affectés dans la filière MPSI ou PCSI, suivront leur scolarité dans les Classes Préparatoires La Salle-Saint Pierre implantées à HEI, situées au 31 ter Rue Colbert en centre ville de Lille. Des informations sur les logements en résidences universitaires seront transmises lors de l'admission. A la suite des deux années de Classe Préparatoire, les élèves intègrent majoritairement l'école d'ingénieur HEI.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1679,8 +2098,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Caen</td>
       <td>96.0</td>
       <td>54.21</td>
+      <td>669.0</td>
       <td>0.18</td>
       <td>28.87</td>
+      <td>76.03</td>
       <td>44.79</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0140013N&g_ti_cod=2817&c_ja_cod=1669" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0140013N&g_ti_cod=2817&c_ja_cod=1669</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2817&g_ta_cod=2817" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2817&g_ta_cod=2817</a></td>
@@ -1691,6 +2112,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.4</td>
       <td>1.1</td>
       <td>3.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1699,8 +2123,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nice</td>
       <td>48.0</td>
       <td>54.34</td>
+      <td>488.0</td>
       <td>0.13</td>
       <td>15.56</td>
+      <td>88.36</td>
       <td>20.93</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10342&g_ta_cod=10342" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10342&g_ta_cod=10342</a></td>
@@ -1711,6 +2137,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.1</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1719,8 +2148,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>40.0</td>
       <td>54.37</td>
+      <td>311.0</td>
       <td>0.14</td>
       <td>35.14</td>
+      <td>74.19</td>
       <td>9.68</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10926&g_ta_cod=10926" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10926&g_ta_cod=10926</a></td>
@@ -1731,6 +2162,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.7*</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>1.7*</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1739,8 +2173,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Grenoble</td>
       <td>45.0</td>
       <td>54.75</td>
+      <td>363.0</td>
       <td>0.10</td>
       <td>94.59</td>
+      <td>81.25</td>
       <td>6.25</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0260035X&g_ti_cod=3621&c_ja_cod=2427" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0260035X&g_ti_cod=3621&c_ja_cod=2427</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3621&g_ta_cod=3621" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3621&g_ta_cod=3621</a></td>
@@ -1751,6 +2187,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>6</td>
@@ -1759,8 +2198,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>48.0</td>
       <td>55.78</td>
+      <td>449.0</td>
       <td>0.14</td>
       <td>61.36</td>
+      <td>74.41</td>
       <td>23.25</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0720029R&g_ti_cod=8690&c_ja_cod=7249" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0720029R&g_ti_cod=8690&c_ja_cod=7249</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8690&g_ta_cod=8690" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8690&g_ta_cod=8690</a></td>
@@ -1768,6 +2209,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aucun internat<br>Demi-pension</td>
       <td>Langue vivante 1 : ANGLAIS ALLEMAND ESPAGNOL<br>Langue vivante 2 : ANGLAIS ALLEMAND ESPAGNOL<br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>MP - PSI*</td>
       <td>Situé dans l'hypercentre du Mans, le lycée Montesquieu propose à ses étudiants de CPGE un encadrement et des conditions de travail  privilégiés. Il dispose d'un internat externalisé sous la forme d'un partenariat avec deux structures d'hébergement proches qui offrent des conditions d'accueil et de travail propices à la réussite des étudiants, accessibles rapidement  par la ligne de tram (5 à 10 mn). Toutes les informations seront remises à l'occasion de la journée Portes ouvertes du Samedi 13 février 2021 avec visite possible des logements. Site internet des CPGE : http://cpge.lyc-montesquieu-72.fr</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1779,8 +2223,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Besancon</td>
       <td>89.0</td>
       <td>56.68</td>
+      <td>564.0</td>
       <td>0.18</td>
       <td>29.11</td>
+      <td>85.89</td>
       <td>34.61</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0250007X&g_ti_cod=3450&c_ja_cod=2271" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0250007X&g_ti_cod=3450&c_ja_cod=2271</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3450&g_ta_cod=3450" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3450&g_ta_cod=3450</a></td>
@@ -1791,6 +2237,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.3</td>
       <td>0.3</td>
       <td>8.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4.1</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1799,8 +2248,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rouen</td>
       <td>48.0</td>
       <td>57.79</td>
+      <td>345.0</td>
       <td>0.19</td>
       <td>27.08</td>
+      <td>91.66</td>
       <td>8.33</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760052U&g_ti_cod=9570&c_ja_cod=8102" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760052U&g_ti_cod=9570&c_ja_cod=8102</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9570&g_ta_cod=9570" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9570&g_ta_cod=9570</a></td>
@@ -1808,6 +2259,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aucun internat<br>Demi-pension</td>
       <td>Langue vivante 1 : Allemand Anglais<br>Langue vivante 2 : Allemand Anglais Espagnol Russe<br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>MP</td>
       <td>Le Lycée François 1er est situé en centre ville à proximité de la gare.L'établissement ne possède pas d'internat mais Le Havre est une ville universitaire qui offre de multiples possibilités d'hébergement (CROUS,Internat des lycées voisins,logements chez l'habitant).Pour les candidats boursiers,il est possible d'obtenir des chambres universitaires, sous réserve d'avoir fait une demande au CROUS dans les délais imposés.Quelques places en internat dans d'autres lycées sont également possibles.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1819,8 +2273,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>48.0</td>
       <td>58.27</td>
+      <td>391.0</td>
       <td>0.15</td>
       <td>21.28</td>
+      <td>84.78</td>
       <td>17.39</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0620006V&g_ti_cod=7326&c_ja_cod=5932" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0620006V&g_ti_cod=7326&c_ja_cod=5932</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7326&g_ta_cod=7326" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7326&g_ta_cod=7326</a></td>
@@ -1831,6 +2287,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0.5</td>
+      <td>3.2</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1839,8 +2298,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Montpellier</td>
       <td>35.0</td>
       <td>58.59</td>
+      <td>249.0</td>
       <td>0.16</td>
       <td>29.41</td>
+      <td>91.17</td>
       <td>11.76</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340881Y&g_ti_cod=4533&c_ja_cod=3294" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340881Y&g_ti_cod=4533&c_ja_cod=3294</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4533&g_ta_cod=4533" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=4533&g_ta_cod=4533</a></td>
@@ -1848,6 +2309,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat-externé<br>Demi-pension</td>
       <td>Langue vivante 1 : ANGLAIS<br>Langue vivante 2 : Pas de LV2<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>1 (MP)</td>
       <td>Internat externé mixte</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -1859,8 +2323,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nice</td>
       <td>36.0</td>
       <td>60.77</td>
+      <td>299.0</td>
       <td>0.14</td>
       <td>9.09</td>
+      <td>64.52</td>
       <td>29.03</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060673Z&g_ti_cod=2237&c_ja_cod=1173" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060673Z&g_ti_cod=2237&c_ja_cod=1173</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2237&g_ta_cod=2237" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2237&g_ta_cod=2237</a></td>
@@ -1871,6 +2337,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>3.8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>8.8</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1879,8 +2348,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Grenoble</td>
       <td>96.0</td>
       <td>60.82</td>
+      <td>857.0</td>
       <td>0.12</td>
       <td>29.07</td>
+      <td>73.25</td>
       <td>26.74</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0740003B&g_ti_cod=8844&c_ja_cod=7399" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0740003B&g_ti_cod=8844&c_ja_cod=7399</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8844&g_ta_cod=8844" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8844&g_ta_cod=8844</a></td>
@@ -1891,6 +2362,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.6</td>
       <td>5.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>9.4</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1899,8 +2373,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>96.0</td>
       <td>61.30</td>
+      <td>743.0</td>
       <td>0.14</td>
       <td>2.50</td>
+      <td>67.08</td>
       <td>18.98</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0420041S&g_ti_cod=5279&c_ja_cod=3995" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0420041S&g_ti_cod=5279&c_ja_cod=3995</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5279&g_ta_cod=5279" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5279&g_ta_cod=5279</a></td>
@@ -1911,6 +2387,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.3</td>
       <td>1</td>
       <td>5.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1919,8 +2398,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Paris</td>
       <td>48.0</td>
       <td>61.32</td>
+      <td>834.0</td>
       <td>0.09</td>
       <td>20.00</td>
+      <td>91.83</td>
       <td>4.08</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9043&g_ta_cod=9043" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9043&g_ta_cod=9043</a></td>
@@ -1931,6 +2412,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1939,8 +2423,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>48.0</td>
       <td>62.14</td>
+      <td>522.0</td>
       <td>0.16</td>
       <td>0.00</td>
+      <td>80.84</td>
       <td>8.51</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0560051B&g_ti_cod=6435&c_ja_cod=5096" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0560051B&g_ti_cod=6435&c_ja_cod=5096</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6435&g_ta_cod=6435" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6435&g_ta_cod=6435</a></td>
@@ -1951,6 +2437,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.7*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1959,8 +2448,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Martinique</td>
       <td>45.0</td>
       <td>62.45</td>
+      <td>143.0</td>
       <td>0.26</td>
       <td>15.15</td>
+      <td>96.77</td>
       <td>29.03</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9720003W&g_ti_cod=11783&c_ja_cod=10218" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9720003W&g_ti_cod=11783&c_ja_cod=10218</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11783&g_ta_cod=11783" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11783&g_ta_cod=11783</a></td>
@@ -1971,6 +2462,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.3</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1979,8 +2473,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>48.0</td>
       <td>63.95</td>
+      <td>282.0</td>
       <td>0.11</td>
       <td>25.93</td>
+      <td>91.66</td>
       <td>8.33</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0410002E&g_ti_cod=5233&c_ja_cod=3950" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0410002E&g_ti_cod=5233&c_ja_cod=3950</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5233&g_ta_cod=5233" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5233&g_ta_cod=5233</a></td>
@@ -1991,6 +2487,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>7</td>
@@ -1999,8 +2498,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Créteil</td>
       <td>48.0</td>
       <td>64.31</td>
+      <td>528.0</td>
       <td>0.15</td>
       <td>4.26</td>
+      <td>87.22</td>
       <td>23.40</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770927P&g_ti_cod=9796&c_ja_cod=8315" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770927P&g_ti_cod=9796&c_ja_cod=8315</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9796&g_ta_cod=9796" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=9796&g_ta_cod=9796</a></td>
@@ -2011,6 +2512,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>2.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>7</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2019,8 +2523,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Strasbourg</td>
       <td>96.0</td>
       <td>64.89</td>
+      <td>486.0</td>
       <td>0.12</td>
       <td>24.07</td>
+      <td>80.77</td>
       <td>9.62</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0680031P&g_ti_cod=8096&c_ja_cod=6667" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0680031P&g_ti_cod=8096&c_ja_cod=6667</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8096&g_ta_cod=8096" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8096&g_ta_cod=8096</a></td>
@@ -2031,6 +2537,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.0*</td>
       <td>0.0*</td>
       <td>0.0*</td>
+      <td>0.0*</td>
+      <td>1.1*</td>
+      <td>2.2*</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2039,8 +2548,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Poitiers</td>
       <td>48.0</td>
       <td>65.13</td>
+      <td>467.0</td>
       <td>0.15</td>
       <td>6.38</td>
+      <td>47.73</td>
       <td>11.36</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0170028N&g_ti_cod=3025&c_ja_cod=1869" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0170028N&g_ti_cod=3025&c_ja_cod=1869</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3025&g_ta_cod=3025" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3025&g_ta_cod=3025</a></td>
@@ -2048,6 +2559,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
       <td>Langue vivante 1 : ANGLAIS - ALLEMAND<br>Langue vivante 2 : ANGLAIS - ESPAGNOL - ALLEMAND<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP -- PSI</td>
       <td>Pour toutes informations supplémentaires veuillez contacter Mme LOCQUEN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2059,8 +2573,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>30.0</td>
       <td>65.87</td>
+      <td>83.0</td>
       <td>0.18</td>
       <td>25.00</td>
+      <td>50.00</td>
       <td>0.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0592916Z&g_ti_cod=6896&c_ja_cod=5529" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0592916Z&g_ti_cod=6896&c_ja_cod=5529</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6896&g_ta_cod=6896" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6896&g_ta_cod=6896</a></td>
@@ -2071,6 +2587,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2079,8 +2598,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Reims</td>
       <td>48.0</td>
       <td>65.94</td>
+      <td>453.0</td>
       <td>0.16</td>
       <td>0.00</td>
+      <td>56.81</td>
       <td>4.54</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0510034K&g_ti_cod=6061&c_ja_cod=4732" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0510034K&g_ti_cod=6061&c_ja_cod=4732</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6061&g_ta_cod=6061" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6061&g_ta_cod=6061</a></td>
@@ -2091,6 +2612,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2.8</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2099,8 +2623,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Versailles</td>
       <td>40.0</td>
       <td>66.09</td>
+      <td>341.0</td>
       <td>0.19</td>
       <td>15.00</td>
+      <td>84.61</td>
       <td>10.26</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11574&g_ta_cod=11574" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11574&g_ta_cod=11574</a></td>
@@ -2111,6 +2637,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2119,8 +2648,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Strasbourg</td>
       <td>28.0</td>
       <td>68.40</td>
+      <td>145.0</td>
       <td>0.16</td>
       <td>47.37</td>
+      <td>63.63</td>
       <td>9.09</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0671636P&g_ti_cod=7975&c_ja_cod=6554" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0671636P&g_ti_cod=7975&c_ja_cod=6554</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7975&g_ta_cod=7975" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7975&g_ta_cod=7975</a></td>
@@ -2131,6 +2662,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>0.0*</td>
+      <td>0.0*</td>
+      <td>0.9*</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2139,8 +2673,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>47.0</td>
       <td>69.11</td>
+      <td>340.0</td>
       <td>0.17</td>
       <td>19.51</td>
+      <td>45.00</td>
       <td>12.50</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0280007F&g_ti_cod=3724&c_ja_cod=2529" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0280007F&g_ti_cod=3724&c_ja_cod=2529</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3724&g_ta_cod=3724" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3724&g_ta_cod=3724</a></td>
@@ -2151,6 +2687,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2159,8 +2698,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lyon</td>
       <td>48.0</td>
       <td>69.70</td>
+      <td>437.0</td>
       <td>0.08</td>
       <td>7.41</td>
+      <td>76.00</td>
       <td>20.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0010013J&g_ti_cod=2000&c_ja_cod=946" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0010013J&g_ti_cod=2000&c_ja_cod=946</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2000&g_ta_cod=2000" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2000&g_ta_cod=2000</a></td>
@@ -2171,6 +2712,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2179,8 +2723,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>48.0</td>
       <td>69.83</td>
+      <td>338.0</td>
       <td>0.16</td>
       <td>29.73</td>
+      <td>88.88</td>
       <td>27.78</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590071G&g_ti_cod=6746&c_ja_cod=5388" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590071G&g_ti_cod=6746&c_ja_cod=5388</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6746&g_ta_cod=6746" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6746&g_ta_cod=6746</a></td>
@@ -2191,6 +2737,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>4.1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.7</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2199,8 +2748,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Grenoble</td>
       <td>45.0</td>
       <td>70.76</td>
+      <td>513.0</td>
       <td>0.10</td>
       <td>40.48</td>
+      <td>65.84</td>
       <td>7.32</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0730013T&g_ti_cod=8780&c_ja_cod=7337" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0730013T&g_ti_cod=8780&c_ja_cod=7337</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8780&g_ta_cod=8780" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=8780&g_ta_cod=8780</a></td>
@@ -2211,6 +2762,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.3</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.6</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2219,8 +2773,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>192.0</td>
       <td>71.01</td>
+      <td>899.0</td>
       <td>0.19</td>
       <td>74.70</td>
+      <td>73.12</td>
       <td>22.50</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450049J&g_ti_cod=5649&c_ja_cod=4345" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450049J&g_ti_cod=5649&c_ja_cod=4345</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5649&g_ta_cod=5649" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5649&g_ta_cod=5649</a></td>
@@ -2231,6 +2787,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0.2</td>
       <td>0.5</td>
       <td>4.9</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4.3</td>
     </tr>
     <tr>
       <td>8</td>
@@ -2239,8 +2798,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Réunion</td>
       <td>48.0</td>
       <td>71.05</td>
+      <td>292.0</td>
       <td>0.25</td>
       <td>28.89</td>
+      <td>100.00</td>
       <td>57.77</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9740001H&g_ti_cod=11879&c_ja_cod=10312" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9740001H&g_ti_cod=11879&c_ja_cod=10312</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11879&g_ta_cod=11879" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=11879&g_ta_cod=11879</a></td>
@@ -2251,6 +2812,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1.6</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1.4</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2259,8 +2823,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nancy-Metz</td>
       <td>36.0</td>
       <td>71.76</td>
+      <td>216.0</td>
       <td>0.17</td>
       <td>38.46</td>
+      <td>64.00</td>
       <td>24.00</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10731&g_ta_cod=10731" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10731&g_ta_cod=10731</a></td>
@@ -2271,6 +2837,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0.7</td>
       <td>3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2279,8 +2848,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aix-Marseille</td>
       <td>48.0</td>
       <td>71.78</td>
+      <td>234.0</td>
       <td>0.13</td>
       <td>3.57</td>
+      <td>88.00</td>
       <td>8.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0131341M&g_ti_cod=2628&c_ja_cod=1531" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0131341M&g_ti_cod=2628&c_ja_cod=1531</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2628&g_ta_cod=2628" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=2628&g_ta_cod=2628</a></td>
@@ -2291,6 +2862,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2299,8 +2873,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Caen</td>
       <td>48.0</td>
       <td>71.93</td>
+      <td>269.0</td>
       <td>0.21</td>
       <td>18.60</td>
+      <td>95.34</td>
       <td>32.55</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0501828R&g_ti_cod=6035&c_ja_cod=4710" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0501828R&g_ti_cod=6035&c_ja_cod=4710</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6035&g_ta_cod=6035" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6035&g_ta_cod=6035</a></td>
@@ -2311,6 +2887,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>1.4</td>
       <td>8.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2319,8 +2898,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>24.0</td>
       <td>71.96</td>
+      <td>213.0</td>
       <td>0.11</td>
       <td>52.00</td>
+      <td>68.17</td>
       <td>4.54</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0490824E&g_ti_cod=5896&c_ja_cod=4578" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0490824E&g_ti_cod=5896&c_ja_cod=4578</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5896&g_ta_cod=5896" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=5896&g_ta_cod=5896</a></td>
@@ -2331,6 +2912,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>0.0*</td>
+      <td>0.9*</td>
+      <td>0.9*</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2339,8 +2923,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Clermont-Ferrand</td>
       <td>36.0</td>
       <td>72.79</td>
+      <td>214.0</td>
       <td>0.16</td>
       <td>24.00</td>
+      <td>58.33</td>
       <td>20.83</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0631068U&g_ti_cod=7603&c_ja_cod=6203" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0631068U&g_ti_cod=7603&c_ja_cod=6203</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7603&g_ta_cod=7603" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=7603&g_ta_cod=7603</a></td>
@@ -2351,6 +2937,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2359,14 +2948,19 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Orléans-Tours</td>
       <td>36.0</td>
       <td>73.33</td>
+      <td>77.0</td>
       <td>0.22</td>
       <td>29.41</td>
+      <td>66.66</td>
       <td>0.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0451335G&g_ti_cod=25067&c_ja_cod=19858" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0451335G&g_ti_cod=25067&c_ja_cod=19858</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=25067&g_ta_cod=25067" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=25067&g_ta_cod=25067</a></td>
       <td><a href="http://www.sup-scse.fr" target="_blank">http://www.sup-scse.fr</a></td>
       <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Demi-pension</td>
       <td>Langue vivante 1 : Anglais<br>Langue vivante 2 : Espagnol, Allemand<br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>1740</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2379,14 +2973,19 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>48.0</td>
       <td>75.95</td>
+      <td>518.0</td>
       <td>0.12</td>
       <td>27.27</td>
+      <td>90.91</td>
       <td>27.27</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3315&g_ta_cod=3315" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3315&g_ta_cod=3315</a></td>
       <td><a href="http://www.lycee-rabelais-saint-brieuc.ac-rennes.fr/" target="_blank">http://www.lycee-rabelais-saint-brieuc.ac-rennes.fr/</a></td>
       <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
       <td>Langue vivante 1 : ANGLAIS<br>Langue vivante 2 : ALLEMAND - ESPAGNOL<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP, PSI.</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2399,8 +2998,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Rennes</td>
       <td>30.0</td>
       <td>77.14</td>
+      <td>270.0</td>
       <td>0.11</td>
       <td>25.00</td>
+      <td>100.00</td>
       <td>4.35</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0290338K&g_ti_cod=3849&c_ja_cod=2650" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0290338K&g_ti_cod=3849&c_ja_cod=2650</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3849&g_ta_cod=3849" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3849&g_ta_cod=3849</a></td>
@@ -2411,6 +3012,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.9</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2419,8 +3023,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Lille</td>
       <td>42.0</td>
       <td>78.14</td>
+      <td>168.0</td>
       <td>0.31</td>
       <td>36.59</td>
+      <td>91.42</td>
       <td>20.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0592921E&g_ti_cod=6900&c_ja_cod=5532" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0592921E&g_ti_cod=6900&c_ja_cod=5532</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6900&g_ta_cod=6900" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=6900&g_ta_cod=6900</a></td>
@@ -2431,6 +3037,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0.6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2439,8 +3048,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>79.09</td>
+      <td>314.0</td>
       <td>0.19</td>
       <td>16.33</td>
+      <td>81.25</td>
       <td>10.42</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=17639&g_ta_cod=17639" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=17639&g_ta_cod=17639</a></td>
@@ -2451,6 +3062,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
     <tr>
       <td>9</td>
@@ -2459,14 +3073,19 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Nantes</td>
       <td>24.0</td>
       <td>80.70</td>
+      <td>184.0</td>
       <td>0.14</td>
       <td>23.81</td>
+      <td>85.70</td>
       <td>9.52</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0851642Y&g_ti_cod=10491&c_ja_cod=8989" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0851642Y&g_ti_cod=10491&c_ja_cod=8989</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10491&g_ta_cod=10491" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=10491&g_ta_cod=10491</a></td>
       <td><a href="http://www.stfrancoislaroche.fr" target="_blank">http://www.stfrancoislaroche.fr</a></td>
       <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
       <td>Langue vivante 1 : Anglais<br>Langue vivante 2 : Allemand et Espagnol<br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>MP</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2479,8 +3098,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Réunion</td>
       <td>40.0</td>
       <td>90.32</td>
+      <td>168.0</td>
       <td>0.26</td>
       <td>65.79</td>
+      <td>97.36</td>
       <td>50.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9741255W&g_ti_cod=13218&c_ja_cod=11017" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9741255W&g_ti_cod=13218&c_ja_cod=11017</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=13218&g_ta_cod=13218" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=13218&g_ta_cod=13218</a></td>
@@ -2488,6 +3109,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Aucun internat</td>
       <td>Langue vivante 1 : ANGLAIS<br>Langue vivante 2 : ESPAGNOL - ALLEMAND<br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>MP</td>
       <td>Etablissement conventionné Erasmus plus ECHE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -2499,8 +3123,10 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>Montpellier</td>
       <td>48.0</td>
       <td>98.23</td>
+      <td>333.0</td>
       <td>0.24</td>
       <td>85.90</td>
+      <td>33.80</td>
       <td>0.00</td>
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300080Z&g_ti_cod=3960&c_ja_cod=2749" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300080Z&g_ti_cod=3960&c_ja_cod=2749</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3960&g_ta_cod=3960" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?g_ti_cod=3960&g_ta_cod=3960</a></td>
@@ -2511,6 +3137,9 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
       <td>0</td>
       <td>0</td>
       <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
     </tr>
   </tbody>
 </table>

@@ -10,8 +10,7 @@ import unidecode
 import warnings
 
 warnings.filterwarnings('ignore')
-filiere = "MPSI"
-filiereResultats = "MP"
+filiere = "BCPST" # MPSI, PCSI, BCPST
 
 # Lecture des données parcoursup session 2019 https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri
 df = pd.read_csv("data/données.csv", sep=";", encoding='utf8')
@@ -214,6 +213,43 @@ def fillFiche(cpge):
     cpge["Rapport d'examen des voeux"] = rapports
     cpge["Langues et options"] = options
 
+def lectureClassement(file):
+    """Lecture du classement de l'Etudiant du fichier file.
+
+    Parameters
+    ----------
+    file : string
+        Chemin d'accès du classement.
+    
+    Returns
+    -------
+    dict
+        Dictionnaire avec pour chaque établissement trouvé ses résultats
+    """
+    resultats = dict()
+    
+    f = open(file, "r", encoding='utf-8')
+    while 1:
+        try:
+            etablissement = unidecode.unidecode(f.readline().strip().lower()) # On lit l'établissement
+            infos = f.readline().replace("\t", " ").split(' ')
+            dep = infos[1][1:-1] # On récupère le département
+
+            for i in range(5): # On lit les résultats des cinq dernières années
+                line = f.readline().strip()
+                if (line[0] == "(") and ("-" in line): # Si il y a un tiret c'est que des données manquent donc on s'arrête
+                    break
+            try:
+                resultat = float(line.replace("\t", " ").split(' ')[-1][:-1].replace(",", '.')) # On récupère la moyenne sur les 5 dernières années
+                resultats[f"{dep}|{etablissement}"] = resultat
+            except:
+                pass
+        except IndexError: # Fin du fichier
+            break
+    f.close()
+
+    return resultats
+
 def resultatsCPGE(cpge, data):
     """Récupère le classement de l'Etudiant des MP, avec les % d'admission à l'x, xens, top 12 (inplace).
     Source : https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html
@@ -226,107 +262,41 @@ def resultatsCPGE(cpge, data):
     """
     nRows = cpge.shape[0]
 
-    # Dictionnaires qui contiennent les résultats des classements de l'Etudiant
-    resultatsX = dict()
-    resultatsXENS = dict()
-    resultatsTOP12 = dict()
-
-    # Lecture résultats X (filière MP)
-    x = open(f"{data['X']}", "r", encoding='utf-8')
-    while 1:
-        try:
-            etablissement = unidecode.unidecode(x.readline().strip().lower()) # On lit l'établissement
-            infos = x.readline().replace("\t", " ").split(' ')
-            dep = infos[1][1:-1] # On récupère le département
-
-            for i in range(5): # On lit les résultats des cinq dernières années
-                line = x.readline().strip()
-                if (line[0] == "(") and ("-" in line): # Si il y a un tiret c'est que des données manquent donc on s'arrête
-                    break
-            resultat = float(line.replace("\t", " ").split(' ')[-1][:-1].replace(",", '.')) # On récupère la moyenne sur les 5 dernières années
-            resultatsX[f"{dep}|{etablissement}"] = resultat
-        except IndexError: # Fin du fichier
-            break
-    x.close()
-
-    # Lecture résultats X-ENS (filière MP)
-    xens = open(f"{data['X-ENS']}", "r", encoding='utf-8')
-    while 1:
-        try:
-            etablissement = unidecode.unidecode(xens.readline().strip().lower()) # On lit l'établissement
-            infos = xens.readline().replace("\t", " ").split(' ')
-            dep = infos[1][1:-1] # On récupère le département
-
-            for i in range(5): # On lit les résultats des cinq dernières années
-                line = xens.readline().strip()
-                if (line[0] == "(") and ("-" in line): # Si il y a un tiret c'est que des données manquent donc on s'arrête
-                    break
-            resultat = float(line.replace("\t", " ").split(' ')[-1][:-1].replace(",", '.')) # On récupère la moyenne sur les 5 dernières années
-            resultatsXENS[f"{dep}|{etablissement}"] = resultat
-        except IndexError: # Fin du fichier
-            break
-    xens.close()
-
-    # Lecture résultats top 12 (filière MP)
-    top12 = open(f"{data['top12']}", "r", encoding='utf-8')
-    while 1:
-        try:
-            etablissement = unidecode.unidecode(top12.readline().strip().lower()) # On lit l'établissement
-            infos = top12.readline().replace("\t", " ").split(' ')
-            dep = infos[1][1:-1] # On récupère le département
-
-            for i in range(5): # On lit les résultats des cinq dernières années
-                line = top12.readline().strip()
-                if (line[0] == "(") and ("-" in line): # Si il y a un tiret c'est que des données manquent donc on s'arrête
-                    break
-            resultat = float(line.replace("\t", " ").split(' ')[-1][:-1].replace(",", '.')) # On récupère la moyenne sur les 5 dernières années
-            resultatsTOP12[f"{dep}|{etablissement}"] = resultat
-        except IndexError: # Fin du fichier
-            break
-    top12.close()
-
-    # On tente de lier les résultats du classement de l'Etudiant, et les noms des formations des données parcoursup
-    arrX = [np.nan] * nRows
-    arrXENS = [np.nan] * nRows
-    arrTOP12 = [np.nan] * nRows
+    filieres = data.keys()
     
-    keys = resultatsX.keys()
+    for filiere in filieres:
+        resultats = lectureClassement(data[filiere])
+        arr = [np.nan] * nRows
 
-    for i in range(0, nRows):
-        # On formate le nom et le département des formations des données parcoursup
-        etablissement, dep = cpge["Établissement"].values[i], cpge["Code départemental de l’établissement"].values[i]
-        etablissement = unidecode.unidecode(" ".join(etablissement.split(" ")[1:]).replace(" ", "-").lower())
-        name = f"{dep}|{etablissement}"
+        for i in range(0, nRows):
+            # On formate le nom et le département des formations des données parcoursup
+            etablissement, dep = cpge["Établissement"].values[i], cpge["Code départemental de l’établissement"].values[i]
+            etablissement = unidecode.unidecode(" ".join(etablissement.split(" ")[1:]).replace(" ", "-").lower())
+            name = f"{dep}|{etablissement}"
+            
+            try: # On cherche leur nom dans les classements de l'Etudiant
+                arr[i] = resultats[name]
+            
+            except KeyError: # Noms particuliers, on tente une autre méthode approximative
+                # On va comparer le nom de la formation et son département aux clefs des dictionnaires
+                # Puis on va sélectionner la clef qui "matche" le mieux
+                # On annote le résultat d'un *, pour signifier qu'il n'est pas sûr
+                bestScore, bestMatch = 0, None
+                splitName = re.split('-| ', unidecode.unidecode(cpge["Établissement"].values[i].lower()))[1:]
+                for key in resultats.keys():
+                    if dep == key.split('|')[0]:
+                        currentScore = 0
+                        name = key.split('|')[1].split("-")
+                        for x in splitName:
+                            if x in name:
+                                currentScore += 1
+                        if currentScore > bestScore:
+                            bestScore = currentScore
+                            bestMatch = key
+                if bestMatch != None:
+                    arr[i] = str(resultats[bestMatch]) + "*"
         
-        try: # On cherche leur nom dans les classements de l'Etudiant
-            arrX[i] = resultatsX[name]
-            arrXENS[i] = resultatsXENS[name]
-            arrTOP12[i] = resultatsTOP12[name]
-        
-        except KeyError: # Noms particuliers, on tente une autre méthode approximative
-            # On va comparer le nom de la formation et son département aux clefs des dictionnaires
-            # Puis on va sélectionner la clef qui "matche" le mieux
-            # On annote le résultat d'un *, pour signifier qu'il n'est pas sûr
-            bestScore, bestMatch = 0, None
-            splitName = re.split('-| ', unidecode.unidecode(cpge["Établissement"].values[i].lower()))[1:]
-            for key in keys:
-                if dep == key.split('|')[0]:
-                    currentScore = 0
-                    name = key.split('|')[1].split("-")
-                    for x in splitName:
-                        if x in name:
-                            currentScore += 1
-                    if currentScore > bestScore:
-                        bestScore = currentScore
-                        bestMatch = key
-            if bestMatch != None:
-                arrX[i] = str(resultatsX[bestMatch]) + "*"
-                arrXENS[i] = str(resultatsXENS[bestMatch]) + "*"
-                arrTOP12[i] = str(resultatsTOP12[bestMatch]) + "*"
-    
-    cpge["Résultats X"] = arrX
-    cpge["Résultats X-ENS"] = arrXENS
-    cpge["Résultats Top 12"] = arrTOP12
+        cpge[filiere] = arr
 
 # Calcul du taux d'accès
 print("Taux d'accès")
@@ -339,15 +309,45 @@ cpge["Roulement"] = cpge["Effectif total des candidats ayant accepté la proposi
 
 # Arondi pour certaines colonnes
 print("Arondi")
-cpge = cpge.round({"Taux d'accès": 2, "Roulement": 2, "% d’admis néo bacheliers avec mention Très Bien au bac": 2, "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale": 2})
+cpge = cpge.round({"Taux d'accès": 2, "Roulement": 2, "% d’admis néo bacheliers avec mention Très Bien au bac": 2, "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale": 2, "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)": 2})
+
+# On définit quels classements on regarde en fonction de la filière voulue
+if filiere == "MPSI":
+    data = {
+        "Résultats X MP" : "data/x-mp.txt",
+        "Résultats X-ENS MP": "data/xens-mp.txt",
+        "Résultats Top 12 MP": "data/top12-mp.txt",
+        "Résultats X PSI": "data/x-psi.txt",
+        "Résultats X-ENS PSI": "data/xens-psi.txt",
+        "Résultats Top 11 PSI": "data/top11-psi.txt"
+    }
+    filiereResultats = "MP et PSI"
+elif filiere == "PCSI":
+    data = {
+        "Résultats X PC" : "data/x-pc.txt",
+        "Résultats X-ENS PC": "data/xens-pc.txt",
+        "RésultatsTop 13 PC": "data/top13-pc.txt",
+        "Résultats X PSI": "data/x-psi.txt",
+        "Résultats X-ENS PSI": "data/xens-psi.txt",
+        "Résultats Top 11 PSI": "data/top11-psi.txt"
+    }
+    filiereResultats = "PC et PSI"
+elif filiere == "BCPST":
+    data = {
+        "Résultats AgroParisTech BCPST": "data/agroparistech-bcpst.txt",
+        "Résultats AgroParisTech + ENS BCPST": "data/agroparistech-ens-bcpst.txt",
+        "Résultats Veto BCPST": "data/veto-bcpst.txt",
+        "Résultats Top 16 BCPST": "data/top16-bcpst.txt"
+    }
+    filiereResultats = "BCPST"
+
+# On lit les résultats X, X-ENS, top 12
+print("Résultats Etudiant")
+resultatsCPGE(cpge, data)
 
 # Scraping des fiches parcoursup
 print("Scraping parcoursup")
 fillFiche(cpge)
-
-# On lit les résultats X, X-ENS, top 12
-print("Résultats Etudiant")
-resultatsCPGE(cpge, data={"X": "data/x-mp.txt", "X-ENS": "data/xens-mp.txt", "top12": "data/top12-mp.txt"})
 
 # Mise en lien html pour certaines colonnes
 formatURL(cpge, ["Lien de la formation sur la plateforme Parcoursup", "Site", "Rapport d'examen des voeux"])
@@ -366,8 +366,10 @@ parametres = ["Decile",
     "Académie de l’établissement",
     "Capacité de l’établissement par formation",
     "Taux d'accès",
+    "Rang du dernier appelé",
     "Roulement",
     "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale",
+    "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)",
     "% d’admis néo bacheliers avec mention Très Bien au bac",
     "Rapport d'examen des voeux",
     "Lien de la formation sur la plateforme Parcoursup",
@@ -375,23 +377,29 @@ parametres = ["Decile",
     "Hebergement",
     "Langues et options",
     "Infos supplementaires",
-    "Résultats X",
-    "Résultats X-ENS",
-    "Résultats Top 12"
 ]
+
+for fil in data.keys():
+    parametres.append(fil)
 
 print("Save")
 final_df = cpge[parametres]
 
 pd.set_option('display.max_colwidth', -1)
-
 html = final_df.to_html(buf=None, index=False, escape=False)
 
 file = open(f"{round(time.time())}.html", "w", encoding='utf-8')
-file.write(f"<strong>Tableau synthétique des formations {filiere} session 2019<br></strong>")
-file.write(f"<strong>Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br></strong>")
-file.write(f"<strong>Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>")
-file.write(f"""
+
+# Style css (police Roboto sous licence Apache License, Version 2.0)
+file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
+<style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
+<style>th {background-color: #c5c5c5;}</style>
+<style>td {background-color: #D9E1F2;}</style>""")
+
+# Précisions
+file.write(f"""<strong>Tableau synthétique des formations {filiere} session 2019<br>
+Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
+Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
 Ce tableau contient {round(nRows)} formations.<br>
 Les formations sont divisés en déciles (indexés de 0 à 9) en fonction de leur taux d'accès.<br>
@@ -399,9 +407,8 @@ Le taux d'accès est calculé selon la formule : rang du dernier appelé / nb de
 Dans le cas où le rang du dernier appelé n'est pas fourni on utilise : nb de propositions d'admission / nb de candidats * 100 (cas de Sainte Geneviève)<br>
 Le roulement est défini par la formule : nb de candidats ayant accepté la proposition d'admission / nb de candidats ayant reçu une proposition d’admission.<br>
 Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'évaluer à quel point ce voeu est souhaité par les étudiants.<br>
-Les résultats X, X-ENS et Top 12 marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant. Résultats filière {filiereResultats}.<br>
-Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br>
-</p>"""
-)
+Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant. Résultats filière {filiereResultats}.<br>
+Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>""")
+
 file.write(html)
 file.close()
