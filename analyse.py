@@ -389,7 +389,7 @@ html = final_df.to_html(buf=None, index=False, escape=False)
 
 file = open(f"{round(time.time())}.html", "w", encoding='utf-8')
 file.write(f"<strong>Tableau synthétique des formations {filiere} session 2019<br></strong>")
-file.write(f"<strong>Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev' target='_blank'>github</a><br></strong>")
+file.write(f"<strong>Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br></strong>")
 file.write(f"<strong>Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>")
 file.write(f"""
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
