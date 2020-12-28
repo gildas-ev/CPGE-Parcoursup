@@ -1,5 +1,4 @@
 # imports
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import urllib.request
@@ -321,17 +320,15 @@ if filiere == "MPSI":
         "Résultats X-ENS PSI": "data/xens-psi.txt",
         "Résultats Top 11 PSI": "data/top11-psi.txt"
     }
-    filiereResultats = "MP et PSI"
 elif filiere == "PCSI":
     data = {
         "Résultats X PC" : "data/x-pc.txt",
         "Résultats X-ENS PC": "data/xens-pc.txt",
-        "RésultatsTop 13 PC": "data/top13-pc.txt",
+        "Résultats Top 13 PC": "data/top13-pc.txt",
         "Résultats X PSI": "data/x-psi.txt",
         "Résultats X-ENS PSI": "data/xens-psi.txt",
         "Résultats Top 11 PSI": "data/top11-psi.txt"
     }
-    filiereResultats = "PC et PSI"
 elif filiere == "BCPST":
     data = {
         "Résultats AgroParisTech BCPST": "data/agroparistech-bcpst.txt",
@@ -339,9 +336,8 @@ elif filiere == "BCPST":
         "Résultats Veto BCPST": "data/veto-bcpst.txt",
         "Résultats Top 16 BCPST": "data/top16-bcpst.txt"
     }
-    filiereResultats = "BCPST"
 
-# On lit les résultats X, X-ENS, top 12
+# On lit les résultats X, X-ENS, top
 print("Résultats Etudiant")
 resultatsCPGE(cpge, data)
 
@@ -379,6 +375,7 @@ parametres = ["Decile",
     "Infos supplementaires",
 ]
 
+# On ajoute les colonnes des résultats aux concours
 for fil in data.keys():
     parametres.append(fil)
 
@@ -390,13 +387,13 @@ html = final_df.to_html(buf=None, index=False, escape=False)
 
 file = open(f"{round(time.time())}.html", "w", encoding='utf-8')
 
-# Style css (police Roboto sous licence Apache License, Version 2.0)
+# Style css (police Roboto sous licence : Apache License, Version 2.0)
 file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>""")
 
-# Précisions
+# En-tête
 file.write(f"""<strong>Tableau synthétique des formations {filiere} session 2019<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
@@ -407,7 +404,8 @@ Le taux d'accès est calculé selon la formule : rang du dernier appelé / nb de
 Dans le cas où le rang du dernier appelé n'est pas fourni on utilise : nb de propositions d'admission / nb de candidats * 100 (cas de Sainte Geneviève)<br>
 Le roulement est défini par la formule : nb de candidats ayant accepté la proposition d'admission / nb de candidats ayant reçu une proposition d’admission.<br>
 Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'évaluer à quel point ce voeu est souhaité par les étudiants.<br>
-Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant. Résultats filière {filiereResultats}.<br>
+Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
+Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
 Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>""")
 
 file.write(html)
