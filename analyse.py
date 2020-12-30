@@ -305,10 +305,16 @@ fillTX(cpge)
 print("Calculs")
 cpge["Decile"] = pd.qcut(cpge["Taux d'accès"], 10, labels = False) # Calcul des déciles
 cpge["Roulement"] = cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] / cpge["Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement"] # Calcul du "roulement" : proportion des élèves qui acceptent ce voeu
+cpge["% d'admis en internat"] = cpge["Dont effectif des admis en internat"] / cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] * 100 # Pourcentage d'internes sur les élèves
 
 # Arondi pour certaines colonnes
 print("Arondi")
-cpge = cpge.round({"Taux d'accès": 2, "Roulement": 2, "% d’admis néo bacheliers avec mention Très Bien au bac": 2, "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale": 2, "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)": 2})
+cpge = cpge.round({"Taux d'accès": 2,
+    "Roulement": 2,
+    "% d’admis néo bacheliers avec mention Très Bien au bac": 2,
+    "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale": 2,
+    "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)": 2,
+    "% d'admis en internat": 2})
 
 # On définit quels classements on regarde en fonction de la filière voulue
 if filiere == "MPSI":
@@ -371,6 +377,7 @@ parametres = ["Decile",
     "Lien de la formation sur la plateforme Parcoursup",
     "Site",
     "Hebergement",
+    "% d'admis en internat",
     "Langues et options",
     "Infos supplementaires",
 ]
@@ -383,22 +390,19 @@ print("Save")
 final_df = cpge[parametres]
 
 pd.set_option('display.max_colwidth', -1)
-html = final_df.to_html(buf=None, index=False, escape=False)
+html = final_df.to_html(buf=None, index=False, escape=False, table_id="table")
 
 file = open(f"{round(time.time())}.html", "w", encoding='utf-8')
-
-# Style css (police Roboto sous licence : Apache License, Version 2.0)
 file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');</style>
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
-<style>td {background-color: #D9E1F2;}</style>""")
-
-# En-tête
-file.write(f"""<strong>Tableau synthétique des formations {filiere} session 2019<br>
+<style>td {background-color: #D9E1F2;}</style>
+<style>input {margin-bottom: 10px;padding: 5px;width: 20%;}</style>
+<strong>Tableau synthétique des formations """ + str(filiere) +""" session 2019<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
-Ce tableau contient {round(nRows)} formations.<br>
+Ce tableau contient """ + str(round(nRows)) + """ formations.<br>
 Les formations sont divisés en déciles (indexés de 0 à 9) en fonction de leur taux d'accès.<br>
 Le taux d'accès est calculé selon la formule : rang du dernier appelé / nb de candidats * 100.<br>
 Dans le cas où le rang du dernier appelé n'est pas fourni on utilise : nb de propositions d'admission / nb de candidats * 100 (cas de Sainte Geneviève)<br>
@@ -406,7 +410,31 @@ Le roulement est défini par la formule : nb de candidats ayant accepté la prop
 Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'évaluer à quel point ce voeu est souhaité par les étudiants.<br>
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
 Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
-Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>""")
-
+Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
+<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, une académie...">
+<script>
+  function searchTable() {
+      var input, filter, found, table, tr, td, i, j;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("table");
+      tr = table.getElementsByTagName("tr");
+      for (i = 1; i < tr.length; i++) {
+          td = tr[i].getElementsByTagName("td");
+          for (j = 0; j < td.length; j++) {
+              if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                  found = true;
+              }
+          }
+          if (found) {
+              tr[i].style.display = "";
+              found = false;
+          } else {
+              tr[i].style.display = "none";
+          }
+      }
+  }
+</script>
+""")
 file.write(html)
 file.close()
