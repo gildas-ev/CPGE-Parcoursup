@@ -9,7 +9,7 @@ import unidecode
 import warnings
 
 warnings.filterwarnings('ignore')
-filiere = "BCPST" # MPSI, PCSI, BCPST
+filiere = "MPSI" # MPSI, PCSI, BCPST
 
 # Lecture des données parcoursup session 2019 https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri
 df = pd.read_csv("data/données.csv", sep=";", encoding='utf8')
@@ -306,6 +306,7 @@ print("Calculs")
 cpge["Decile"] = pd.qcut(cpge["Taux d'accès"], 10, labels = False) # Calcul des déciles
 cpge["Roulement"] = cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] / cpge["Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement"] # Calcul du "roulement" : proportion des élèves qui acceptent ce voeu
 cpge["% d'admis en internat"] = cpge["Dont effectif des admis en internat"] / cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] * 100 # Pourcentage d'internes sur les élèves
+cpge["Département"] = cpge["Département de l’établissement"] + " (" + cpge["Code départemental de l’établissement"]+ ")" # Département
 
 # Arondi pour certaines colonnes
 print("Arondi")
@@ -364,7 +365,7 @@ print(cpge.shape)
 # Sélection des paramètres voulus
 parametres = ["Decile",
     "Établissement",
-    "Code départemental de l’établissement",
+    "Département",
     "Académie de l’établissement",
     "Capacité de l’établissement par formation",
     "Taux d'accès",
@@ -379,7 +380,7 @@ parametres = ["Decile",
     "Hebergement",
     "% d'admis en internat",
     "Langues et options",
-    "Infos supplementaires",
+    "Infos supplementaires"
 ]
 
 # On ajoute les colonnes des résultats aux concours
@@ -397,8 +398,8 @@ file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Robot
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>
-<style>input {margin-bottom: 10px;padding: 5px;width: 20%;}</style>
-<strong>Tableau synthétique des formations """ + str(filiere) +""" session 2019<br>
+<style>input {margin-bottom: 10px;padding: 5px;width: 25%;}</style>
+<strong>Tableau synthétique des formations """ + str(filiere) + """ session 2019<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
@@ -411,29 +412,34 @@ Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
 Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
 Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
-<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, une académie...">
+<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un département ou une académie">
 <script>
-  function searchTable() {
-      var input, filter, found, table, tr, td, i, j;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("table");
-      tr = table.getElementsByTagName("tr");
-      for (i = 1; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td");
-          for (j = 0; j < td.length; j++) {
-              if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                  found = true;
-              }
-          }
-          if (found) {
-              tr[i].style.display = "";
-              found = false;
-          } else {
-              tr[i].style.display = "none";
-          }
-      }
+function searchTable() {
+  var input, filter, found, table, tr, td, i, j;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    if (td[1].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    else if (td[2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    else if (td[3].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    
+    if (found) {
+        tr[i].style.display = "";
+        found = false;
+    } else {
+        tr[i].style.display = "none";
+    }
   }
+}
 </script>
 """)
 file.write(html)

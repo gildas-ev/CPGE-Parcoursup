@@ -2,7 +2,7 @@
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>
-<style>input {margin-bottom: 10px;padding: 5px;width: 20%;}</style>
+<style>input {margin-bottom: 10px;padding: 5px;width: 25%;}</style>
 <strong>Tableau synthétique des formations PCSI session 2019<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
@@ -16,36 +16,41 @@ Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
 Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
 Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
-<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, une académie...">
+<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un département ou une académie">
 <script>
-  function searchTable() {
-      var input, filter, found, table, tr, td, i, j;
-      input = document.getElementById("myInput");
-      filter = input.value.toUpperCase();
-      table = document.getElementById("table");
-      tr = table.getElementsByTagName("tr");
-      for (i = 1; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td");
-          for (j = 0; j < td.length; j++) {
-              if (td[j].innerHTML.toUpperCase().indexOf(filter) > -1) {
-                  found = true;
-              }
-          }
-          if (found) {
-              tr[i].style.display = "";
-              found = false;
-          } else {
-              tr[i].style.display = "none";
-          }
-      }
+function searchTable() {
+  var input, filter, found, table, tr, td, i, j;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td");
+    if (td[1].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    else if (td[2].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    else if (td[3].innerHTML.toUpperCase().indexOf(filter) > -1) {
+      found = true;
+    }
+    
+    if (found) {
+        tr[i].style.display = "";
+        found = false;
+    } else {
+        tr[i].style.display = "none";
+    }
   }
+}
 </script>
 <table border="1" class="dataframe" id="table">
   <thead>
     <tr style="text-align: right;">
       <th>Decile</th>
       <th>Établissement</th>
-      <th>Code départemental de l’établissement</th>
+      <th>Département</th>
       <th>Académie de l’établissement</th>
       <th>Capacité de l’établissement par formation</th>
       <th>Taux d'accès</th>
@@ -73,7 +78,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Henri IV</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>7.72</td>
@@ -99,7 +104,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Louis Le Grand</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>94.0</td>
       <td>9.22</td>
@@ -125,7 +130,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Sainte Geneviève</td>
-      <td>78</td>
+      <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>125.0</td>
       <td>12.08</td>
@@ -151,7 +156,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Aux Lazaristes</td>
-      <td>69</td>
+      <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>45.0</td>
       <td>14.56</td>
@@ -177,7 +182,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Hoche</td>
-      <td>78</td>
+      <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>96.0</td>
       <td>15.94</td>
@@ -203,7 +208,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Pierre De Fermat</td>
-      <td>31</td>
+      <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>96.0</td>
       <td>16.79</td>
@@ -229,7 +234,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Montaigne</td>
-      <td>33</td>
+      <td>Gironde (33)</td>
       <td>Bordeaux</td>
       <td>96.0</td>
       <td>17.48</td>
@@ -255,7 +260,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Stanislas</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>138.0</td>
       <td>21.78</td>
@@ -281,7 +286,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée du Parc</td>
-      <td>69</td>
+      <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>136.0</td>
       <td>22.45</td>
@@ -307,7 +312,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Ecole des Pupilles de l'Air - lycée de la défense</td>
-      <td>38</td>
+      <td>Isère (38)</td>
       <td>Grenoble</td>
       <td>30.0</td>
       <td>22.83</td>
@@ -333,7 +338,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Naval</td>
-      <td>29</td>
+      <td>Finistère (29)</td>
       <td>Rennes</td>
       <td>32.0</td>
       <td>23.37</td>
@@ -359,7 +364,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Louis Pasteur</td>
-      <td>92</td>
+      <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>92.0</td>
       <td>26.14</td>
@@ -385,7 +390,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Militaire d'Aix-en-Provence</td>
-      <td>13</td>
+      <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>36.0</td>
       <td>26.74</td>
@@ -411,7 +416,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>0</td>
       <td>Lycée Condorcet</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>27.27</td>
@@ -437,7 +442,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Lakanal</td>
-      <td>92</td>
+      <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>96.0</td>
       <td>27.41</td>
@@ -463,7 +468,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Fénelon</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>28.75</td>
@@ -489,7 +494,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée général Clemenceau</td>
-      <td>44</td>
+      <td>Loire-Atlantique (44)</td>
       <td>Nantes</td>
       <td>144.0</td>
       <td>29.59</td>
@@ -515,7 +520,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Charlemagne</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>31.83</td>
@@ -541,7 +546,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Saint-Louis (6ème)</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>240.0</td>
       <td>31.88</td>
@@ -567,7 +572,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Thiers</td>
-      <td>13</td>
+      <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>96.0</td>
       <td>32.18</td>
@@ -593,7 +598,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Militaire Prytanee National</td>
-      <td>72</td>
+      <td>Sarthe (72)</td>
       <td>Nantes</td>
       <td>44.0</td>
       <td>32.39</td>
@@ -619,7 +624,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée BELLEVUE</td>
-      <td>31</td>
+      <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>96.0</td>
       <td>32.48</td>
@@ -645,7 +650,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Chaptal</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>96.0</td>
       <td>33.46</td>
@@ -671,7 +676,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Champollion</td>
-      <td>38</td>
+      <td>Isère (38)</td>
       <td>Grenoble</td>
       <td>144.0</td>
       <td>34.70</td>
@@ -697,7 +702,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Fénelon Sainte-Marie</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>47.0</td>
       <td>35.45</td>
@@ -723,7 +728,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Faidherbe</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>96.0</td>
       <td>35.73</td>
@@ -749,7 +754,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Masséna</td>
-      <td>06</td>
+      <td>Alpes-Maritimes (06)</td>
       <td>Nice</td>
       <td>96.0</td>
       <td>37.67</td>
@@ -775,7 +780,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>1</td>
       <td>Lycée Joffre</td>
-      <td>34</td>
+      <td>Hérault (34)</td>
       <td>Montpellier</td>
       <td>132.0</td>
       <td>37.91</td>
@@ -801,7 +806,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Claude Bernard</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>38.12</td>
@@ -827,7 +832,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée La Fayette</td>
-      <td>63</td>
+      <td>Puy-de-Dôme (63)</td>
       <td>Clermont-Ferrand</td>
       <td>24.0</td>
       <td>38.50</td>
@@ -853,7 +858,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Michelet</td>
-      <td>92</td>
+      <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>88.0</td>
       <td>39.14</td>
@@ -879,7 +884,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Gay-Lussac</td>
-      <td>87</td>
+      <td>Haute-Vienne (87)</td>
       <td>Limoges</td>
       <td>48.0</td>
       <td>39.85</td>
@@ -905,7 +910,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Carnot</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>40.14</td>
@@ -931,7 +936,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Janson De Sailly</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>144.0</td>
       <td>40.28</td>
@@ -957,7 +962,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée La Martiniere Monplaisir</td>
-      <td>69</td>
+      <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>144.0</td>
       <td>40.44</td>
@@ -983,7 +988,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Albert Schweitzer</td>
-      <td>93</td>
+      <td>Seine-Saint-Denis (93)</td>
       <td>Créteil</td>
       <td>60.0</td>
       <td>40.62</td>
@@ -1009,7 +1014,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Jean-Baptiste Say</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>41.22</td>
@@ -1035,7 +1040,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Blaise Pascal</td>
-      <td>91</td>
+      <td>Essonne (91)</td>
       <td>Versailles</td>
       <td>48.0</td>
       <td>41.84</td>
@@ -1061,7 +1066,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Déodat de Séverac</td>
-      <td>31</td>
+      <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>84.0</td>
       <td>42.62</td>
@@ -1087,7 +1092,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Paul Eluard</td>
-      <td>93</td>
+      <td>Seine-Saint-Denis (93)</td>
       <td>Créteil</td>
       <td>24.0</td>
       <td>44.55</td>
@@ -1113,7 +1118,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Gustave Eiffel</td>
-      <td>33</td>
+      <td>Gironde (33)</td>
       <td>Bordeaux</td>
       <td>96.0</td>
       <td>45.31</td>
@@ -1139,7 +1144,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>2</td>
       <td>Lycée Camille Jullian</td>
-      <td>33</td>
+      <td>Gironde (33)</td>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>46.02</td>
@@ -1165,7 +1170,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Pôle Chateaubriand - Joliot-Curie</td>
-      <td>35</td>
+      <td>Ille-et-Vilaine (35)</td>
       <td>Rennes</td>
       <td>144.0</td>
       <td>46.38</td>
@@ -1191,7 +1196,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Pierre Corneille</td>
-      <td>76</td>
+      <td>Seine-Maritime (76)</td>
       <td>Rouen</td>
       <td>96.0</td>
       <td>47.51</td>
@@ -1217,7 +1222,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Marcelin Berthelot</td>
-      <td>94</td>
+      <td>Val-de-Marne (94)</td>
       <td>Créteil</td>
       <td>144.0</td>
       <td>48.47</td>
@@ -1243,7 +1248,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Buffon</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>49.52</td>
@@ -1269,7 +1274,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Lavoisier</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>49.55</td>
@@ -1295,7 +1300,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Henri Poincaré</td>
-      <td>54</td>
+      <td>Meurthe-et-Moselle (54)</td>
       <td>Nancy-Metz</td>
       <td>96.0</td>
       <td>50.03</td>
@@ -1321,7 +1326,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Paul Valery</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>50.89</td>
@@ -1347,7 +1352,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Paul Cezanne</td>
-      <td>13</td>
+      <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>96.0</td>
       <td>51.49</td>
@@ -1373,7 +1378,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Baimbridge</td>
-      <td>971</td>
+      <td>Guadeloupe (971)</td>
       <td>Guadeloupe</td>
       <td>45.0</td>
       <td>51.69</td>
@@ -1399,7 +1404,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Kléber</td>
-      <td>67</td>
+      <td>Bas-Rhin (67)</td>
       <td>Strasbourg</td>
       <td>144.0</td>
       <td>52.39</td>
@@ -1425,7 +1430,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Sainte Marie</td>
-      <td>92</td>
+      <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>45.0</td>
       <td>53.22</td>
@@ -1451,7 +1456,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Jacques Amyot</td>
-      <td>89</td>
+      <td>Yonne (89)</td>
       <td>Dijon</td>
       <td>28.0</td>
       <td>55.00</td>
@@ -1477,7 +1482,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>3</td>
       <td>Lycée Descartes</td>
-      <td>37</td>
+      <td>Indre-et-Loire (37)</td>
       <td>Orléans-Tours</td>
       <td>96.0</td>
       <td>55.44</td>
@@ -1503,7 +1508,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Pierre d'Ailly</td>
-      <td>60</td>
+      <td>Oise (60)</td>
       <td>Amiens</td>
       <td>48.0</td>
       <td>55.56</td>
@@ -1529,7 +1534,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Jean Perrin</td>
-      <td>13</td>
+      <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>48.0</td>
       <td>55.68</td>
@@ -1555,7 +1560,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Cesar Baggio</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>48.0</td>
       <td>55.87</td>
@@ -1581,7 +1586,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée D'Arsonval</td>
-      <td>94</td>
+      <td>Val-de-Marne (94)</td>
       <td>Créteil</td>
       <td>35.0</td>
       <td>56.55</td>
@@ -1607,7 +1612,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée du Parc des Loges</td>
-      <td>91</td>
+      <td>Essonne (91)</td>
       <td>Versailles</td>
       <td>32.0</td>
       <td>56.69</td>
@@ -1633,7 +1638,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Blaise Pascal</td>
-      <td>63</td>
+      <td>Puy-de-Dôme (63)</td>
       <td>Clermont-Ferrand</td>
       <td>96.0</td>
       <td>56.86</td>
@@ -1659,7 +1664,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Raoul Follereau</td>
-      <td>90</td>
+      <td>Territoire de Belfort (90)</td>
       <td>Besancon</td>
       <td>45.0</td>
       <td>57.59</td>
@@ -1685,7 +1690,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Fabert</td>
-      <td>57</td>
+      <td>Moselle (57)</td>
       <td>Nancy-Metz</td>
       <td>84.0</td>
       <td>57.95</td>
@@ -1711,7 +1716,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Jacques Decour</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>96.0</td>
       <td>58.42</td>
@@ -1737,7 +1742,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Albert Chatelet</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>48.0</td>
       <td>58.45</td>
@@ -1763,7 +1768,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Turgot</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>58.86</td>
@@ -1789,7 +1794,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Montesquieu</td>
-      <td>72</td>
+      <td>Sarthe (72)</td>
       <td>Nantes</td>
       <td>96.0</td>
       <td>58.97</td>
@@ -1815,7 +1820,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Pierre de La Ramee</td>
-      <td>02</td>
+      <td>Aisne (02)</td>
       <td>Amiens</td>
       <td>24.0</td>
       <td>59.83</td>
@@ -1841,7 +1846,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>4</td>
       <td>Lycée Descartes</td>
-      <td>78</td>
+      <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>34.0</td>
       <td>59.93</td>
@@ -1867,7 +1872,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée René Cassin Bayonne</td>
-      <td>64</td>
+      <td>Pyrénées-Atlantiques (64)</td>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>60.07</td>
@@ -1893,7 +1898,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Jean Perrin</td>
-      <td>69</td>
+      <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>48.0</td>
       <td>60.09</td>
@@ -1919,7 +1924,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée François 1er</td>
-      <td>76</td>
+      <td>Seine-Maritime (76)</td>
       <td>Rouen</td>
       <td>48.0</td>
       <td>60.26</td>
@@ -1945,7 +1950,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Henri Moissan</td>
-      <td>77</td>
+      <td>Seine-et-Marne (77)</td>
       <td>Créteil</td>
       <td>35.0</td>
       <td>61.31</td>
@@ -1971,7 +1976,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Jean Baptiste Corot</td>
-      <td>91</td>
+      <td>Essonne (91)</td>
       <td>Versailles</td>
       <td>44.0</td>
       <td>61.63</td>
@@ -1997,7 +2002,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Sainte Marie</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>48.0</td>
       <td>61.85</td>
@@ -2023,7 +2028,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Dupuy De Lôme</td>
-      <td>56</td>
+      <td>Morbihan (56)</td>
       <td>Rennes</td>
       <td>48.0</td>
       <td>62.30</td>
@@ -2049,7 +2054,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Chrestien de Troyes</td>
-      <td>10</td>
+      <td>Aube (10)</td>
       <td>Reims</td>
       <td>48.0</td>
       <td>62.61</td>
@@ -2075,7 +2080,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Marceau</td>
-      <td>28</td>
+      <td>Eure-et-Loir (28)</td>
       <td>Orléans-Tours</td>
       <td>48.0</td>
       <td>62.76</td>
@@ -2101,7 +2106,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Raspail</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>62.79</td>
@@ -2127,7 +2132,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Institut Supérieur Saint-Denis</td>
-      <td>07</td>
+      <td>Ardèche (07)</td>
       <td>Grenoble</td>
       <td>24.0</td>
       <td>63.03</td>
@@ -2153,7 +2158,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Henri Loritz</td>
-      <td>54</td>
+      <td>Meurthe-et-Moselle (54)</td>
       <td>Nancy-Metz</td>
       <td>90.0</td>
       <td>63.32</td>
@@ -2179,7 +2184,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Jeanne D'Albret</td>
-      <td>78</td>
+      <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>48.0</td>
       <td>63.69</td>
@@ -2205,7 +2210,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>5</td>
       <td>Lycée Victor Hugo</td>
-      <td>14</td>
+      <td>Calvados (14)</td>
       <td>Caen</td>
       <td>96.0</td>
       <td>63.76</td>
@@ -2231,7 +2236,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Victor Hugo</td>
-      <td>25</td>
+      <td>Doubs (25)</td>
       <td>Besancon</td>
       <td>90.0</td>
       <td>64.08</td>
@@ -2257,7 +2262,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Assomption Bellevue</td>
-      <td>69</td>
+      <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>48.0</td>
       <td>64.49</td>
@@ -2283,7 +2288,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Jean Dautet</td>
-      <td>17</td>
+      <td>Charente-Maritime (17)</td>
       <td>Poitiers</td>
       <td>24.0</td>
       <td>65.28</td>
@@ -2309,7 +2314,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Laperouse</td>
-      <td>81</td>
+      <td>Tarn (81)</td>
       <td>Toulouse</td>
       <td>48.0</td>
       <td>65.82</td>
@@ -2335,7 +2340,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Les Eucalyptus</td>
-      <td>06</td>
+      <td>Alpes-Maritimes (06)</td>
       <td>Nice</td>
       <td>48.0</td>
       <td>65.84</td>
@@ -2361,7 +2366,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Honoré De Balzac</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
       <td>66.42</td>
@@ -2387,7 +2392,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Bellevue</td>
-      <td>972</td>
+      <td>Martinique (972)</td>
       <td>Martinique</td>
       <td>45.0</td>
       <td>66.67</td>
@@ -2413,7 +2418,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Louis Couffignal</td>
-      <td>67</td>
+      <td>Bas-Rhin (67)</td>
       <td>Strasbourg</td>
       <td>35.0</td>
       <td>66.93</td>
@@ -2439,7 +2444,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Carnot</td>
-      <td>21</td>
+      <td>Côte-d'or (21)</td>
       <td>Dijon</td>
       <td>96.0</td>
       <td>66.94</td>
@@ -2465,7 +2470,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Dumont d'Urville</td>
-      <td>83</td>
+      <td>Var (83)</td>
       <td>Nice</td>
       <td>96.0</td>
       <td>67.11</td>
@@ -2491,7 +2496,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée International de Valbonne</td>
-      <td>06</td>
+      <td>Alpes-Maritimes (06)</td>
       <td>Nice</td>
       <td>93.0</td>
       <td>67.63</td>
@@ -2517,7 +2522,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>LYCEE POLYVALENT GUSTAVE MONOD</td>
-      <td>95</td>
+      <td>Val-d'oise (95)</td>
       <td>Versailles</td>
       <td>40.0</td>
       <td>68.08</td>
@@ -2543,7 +2548,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>6</td>
       <td>Lycée Camille Guérin</td>
-      <td>86</td>
+      <td>Vienne (86)</td>
       <td>Poitiers</td>
       <td>48.0</td>
       <td>68.13</td>
@@ -2569,7 +2574,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Francois Ier</td>
-      <td>77</td>
+      <td>Seine-et-Marne (77)</td>
       <td>Créteil</td>
       <td>48.0</td>
       <td>68.15</td>
@@ -2595,7 +2600,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Henri Wallon</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>96.0</td>
       <td>68.68</td>
@@ -2621,7 +2626,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Bertran De Born</td>
-      <td>24</td>
+      <td>Dordogne (24)</td>
       <td>Bordeaux</td>
       <td>48.0</td>
       <td>68.74</td>
@@ -2647,7 +2652,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Pothier</td>
-      <td>45</td>
+      <td>Loiret (45)</td>
       <td>Orléans-Tours</td>
       <td>96.0</td>
       <td>69.26</td>
@@ -2673,7 +2678,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée de l'Essouriau</td>
-      <td>91</td>
+      <td>Essonne (91)</td>
       <td>Versailles</td>
       <td>35.0</td>
       <td>69.97</td>
@@ -2699,7 +2704,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Jacques Amyot</td>
-      <td>77</td>
+      <td>Seine-et-Marne (77)</td>
       <td>Créteil</td>
       <td>35.0</td>
       <td>70.04</td>
@@ -2725,7 +2730,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Jean Jaurès</td>
-      <td>93</td>
+      <td>Seine-Saint-Denis (93)</td>
       <td>Créteil</td>
       <td>35.0</td>
       <td>70.28</td>
@@ -2751,7 +2756,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée général et technologique Henri Bergson</td>
-      <td>49</td>
+      <td>Maine-et-Loire (49)</td>
       <td>Nantes</td>
       <td>48.0</td>
       <td>70.40</td>
@@ -2777,7 +2782,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée CAMILLE VERNET</td>
-      <td>26</td>
+      <td>Drôme (26)</td>
       <td>Grenoble</td>
       <td>30.0</td>
       <td>70.73</td>
@@ -2803,7 +2808,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée St Joseph</td>
-      <td>84</td>
+      <td>Vaucluse (84)</td>
       <td>Aix-Marseille</td>
       <td>48.0</td>
       <td>70.92</td>
@@ -2829,7 +2834,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Leon-Gontran Damas</td>
-      <td>973</td>
+      <td>Guyane (973)</td>
       <td>Guyane</td>
       <td>24.0</td>
       <td>71.00</td>
@@ -2855,7 +2860,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée de L'Emperi</td>
-      <td>13</td>
+      <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>36.0</td>
       <td>71.17</td>
@@ -2881,7 +2886,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Stanislas</td>
-      <td>06</td>
+      <td>Alpes-Maritimes (06)</td>
       <td>Nice</td>
       <td>36.0</td>
       <td>71.46</td>
@@ -2907,7 +2912,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>7</td>
       <td>Lycée Albert Schweitzer</td>
-      <td>68</td>
+      <td>Haut-Rhin (68)</td>
       <td>Strasbourg</td>
       <td>48.0</td>
       <td>71.64</td>
@@ -2933,7 +2938,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Vaugelas</td>
-      <td>73</td>
+      <td>Savoie (73)</td>
       <td>Grenoble</td>
       <td>45.0</td>
       <td>71.69</td>
@@ -2959,7 +2964,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée général et technologique Aristide Briand</td>
-      <td>44</td>
+      <td>Loire-Atlantique (44)</td>
       <td>Nantes</td>
       <td>48.0</td>
       <td>72.14</td>
@@ -2985,7 +2990,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Edmond Perrier</td>
-      <td>19</td>
+      <td>Corrèze (19)</td>
       <td>Limoges</td>
       <td>24.0</td>
       <td>72.29</td>
@@ -3011,7 +3016,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Sainte-Marie</td>
-      <td>14</td>
+      <td>Calvados (14)</td>
       <td>Caen</td>
       <td>24.0</td>
       <td>73.66</td>
@@ -3037,7 +3042,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>LGT Saint-Stanislas</td>
-      <td>44</td>
+      <td>Loire-Atlantique (44)</td>
       <td>Nantes</td>
       <td>48.0</td>
       <td>74.23</td>
@@ -3063,7 +3068,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Franklin Roosevelt</td>
-      <td>51</td>
+      <td>Marne (51)</td>
       <td>Reims</td>
       <td>96.0</td>
       <td>74.96</td>
@@ -3089,7 +3094,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée ASSOMPTION</td>
-      <td>35</td>
+      <td>Ille-et-Vilaine (35)</td>
       <td>Rennes</td>
       <td>48.0</td>
       <td>75.05</td>
@@ -3115,7 +3120,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Louis Barthou</td>
-      <td>64</td>
+      <td>Pyrénées-Atlantiques (64)</td>
       <td>Bordeaux</td>
       <td>96.0</td>
       <td>75.08</td>
@@ -3141,7 +3146,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Pôle Kerichen-Vauban</td>
-      <td>29</td>
+      <td>Finistère (29)</td>
       <td>Rennes</td>
       <td>96.0</td>
       <td>75.39</td>
@@ -3167,7 +3172,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Claude Fauriel</td>
-      <td>42</td>
+      <td>Loire (42)</td>
       <td>Lyon</td>
       <td>96.0</td>
       <td>75.61</td>
@@ -3193,7 +3198,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Auguste Brizeux</td>
-      <td>29</td>
+      <td>Finistère (29)</td>
       <td>Rennes</td>
       <td>48.0</td>
       <td>76.48</td>
@@ -3219,7 +3224,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Jean Jaures</td>
-      <td>95</td>
+      <td>Val-d'oise (95)</td>
       <td>Versailles</td>
       <td>48.0</td>
       <td>77.51</td>
@@ -3245,7 +3250,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Roland Garros</td>
-      <td>974</td>
+      <td>La Réunion (974)</td>
       <td>Réunion</td>
       <td>35.0</td>
       <td>77.78</td>
@@ -3271,7 +3276,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>8</td>
       <td>Lycée Leconte de Lisle</td>
-      <td>974</td>
+      <td>La Réunion (974)</td>
       <td>Réunion</td>
       <td>48.0</td>
       <td>78.12</td>
@@ -3297,7 +3302,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Pierre-Gilles de Gennes - ENCPB</td>
-      <td>75</td>
+      <td>Paris (75)</td>
       <td>Paris</td>
       <td>96.0</td>
       <td>78.72</td>
@@ -3323,7 +3328,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée François Arago</td>
-      <td>66</td>
+      <td>Pyrénées-Orientales (66)</td>
       <td>Montpellier</td>
       <td>48.0</td>
       <td>78.79</td>
@@ -3349,7 +3354,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Berthollet</td>
-      <td>74</td>
+      <td>Haute-Savoie (74)</td>
       <td>Grenoble</td>
       <td>96.0</td>
       <td>78.92</td>
@@ -3375,7 +3380,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Aristide Briand</td>
-      <td>27</td>
+      <td>Eure (27)</td>
       <td>Rouen</td>
       <td>48.0</td>
       <td>79.51</td>
@@ -3401,7 +3406,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Frédéric Mistral</td>
-      <td>84</td>
+      <td>Vaucluse (84)</td>
       <td>Aix-Marseille</td>
       <td>42.0</td>
       <td>79.86</td>
@@ -3427,7 +3432,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Théophile Gautier</td>
-      <td>65</td>
+      <td>Hautes-Pyrénées (65)</td>
       <td>Toulouse</td>
       <td>35.0</td>
       <td>80.00</td>
@@ -3453,7 +3458,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Sainte Anne</td>
-      <td>29</td>
+      <td>Finistère (29)</td>
       <td>Rennes</td>
       <td>24.0</td>
       <td>80.25</td>
@@ -3479,7 +3484,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Lalande</td>
-      <td>01</td>
+      <td>Ain (01)</td>
       <td>Lyon</td>
       <td>48.0</td>
       <td>82.15</td>
@@ -3505,7 +3510,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Alphonse DAUDET</td>
-      <td>30</td>
+      <td>Gard (30)</td>
       <td>Montpellier</td>
       <td>96.0</td>
       <td>82.44</td>
@@ -3531,7 +3536,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Robespierre</td>
-      <td>62</td>
+      <td>Pas-de-Calais (62)</td>
       <td>Lille</td>
       <td>48.0</td>
       <td>82.62</td>
@@ -3557,7 +3562,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Louis Thuillier</td>
-      <td>80</td>
+      <td>Somme (80)</td>
       <td>Amiens</td>
       <td>96.0</td>
       <td>82.81</td>
@@ -3583,7 +3588,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Jean Bart</td>
-      <td>59</td>
+      <td>Nord (59)</td>
       <td>Lille</td>
       <td>48.0</td>
       <td>82.81</td>
@@ -3609,7 +3614,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Francois Rabelais</td>
-      <td>22</td>
+      <td>Côtes-d'armor (22)</td>
       <td>Rennes</td>
       <td>48.0</td>
       <td>84.46</td>
@@ -3635,7 +3640,7 @@ Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
     <tr>
       <td>9</td>
       <td>Lycée Saliège</td>
-      <td>31</td>
+      <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>96.0</td>
       <td>85.98</td>
