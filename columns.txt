@@ -6,10 +6,12 @@ Code départemental de l’établissement
 Département de l’établissement
 Région de l’établissement
 Académie de l’établissement
+Sélectivité
 Filière de formation très agrégée
+Filière de formation détaillée
 Filière de formation
 Concours communs et banques d'épreuves
-Filière de formation détaillée
+Filière de formation détaillée.1
 Filière de formation très détaillée
 Lien de la formation sur la plateforme Parcoursup
 Coordonnées GPS de la formation
@@ -42,7 +44,6 @@ Effectif des candidats néo bacheliers professionnels classés par l’établiss
 Dont effectif des candidats boursiers néo bacheliers professionnels classés par l’établissement
 Effectif des autres candidats classés par l’établissement
 Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement
-Rang du dernier appelé
 Effectif total des candidats ayant accepté la proposition de l’établissement (admis)
 Dont effectif des candidates admises
 Effectif des admis en phase principale
@@ -89,4 +90,26 @@ Dont % d’admis avec mention
 Dont % d’admis avec mention.1
 % d’admis néo bacheliers professionnels
 Dont % d’admis avec mention.2
+Effectif des candidats en terminale générale ayant reçu une proposition d’admission de la part de l’établissement
+Dont effectif des candidats boursiers en terminale générale ayant reçu une proposition d’admission de la part de l’établissement
+Effectif des candidats en terminale technologique ayant reçu une proposition d’admission de la part de l’établissement
+Dont effectif des candidats boursiers en terminale technologique ayant reçu une proposition d’admission de la part de l’établissement
+Effectif des candidats en terminale professionnelle ayant reçu une proposition d’admission de la part de l’établissement
+Dont effectif des candidats boursiers en terminale générale professionnelle ayant reçu une proposition d’admission de la part de l’établissement
+Effectif des autres candidats ayant reçu une proposition d’admission de la part de l’établissement
+Regroupement 1 effectué par les formations pour les classements
+Rang du dernier appelé du groupe 1
+Regroupement 2 effectué par les formations pour les classements
+Rang du dernier appelé du groupe 2
+Regroupement 3 effectué par les formations pour les classements
+Rang du dernier appelé du groupe 3
+Regroupement 4 effectué par les formations pour les classements
+Rang du dernier appelé du groupe 4
+Regroupement 5 effectué par les formations pour les classements
+Rang du dernier appelé du groupe 5
+Indicateur Parcoursup du taux d’accès des candidats ayant postulé à la formation (ratio entre le dernier appelé et le dernier classé)
+Dont taux d’accès des candidats ayant un bac professionnel ayant postulé à la formation
+Dont taux d’accès des candidats ayant un bac général ayant postulé à la formation
+Dont taux d’accès des candidats ayant un bac technologique ayant postulé à la formation
 tri
+COD_AFF_FORM

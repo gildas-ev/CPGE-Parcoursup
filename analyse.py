@@ -11,11 +11,18 @@ import warnings
 warnings.filterwarnings('ignore')
 filiere = "MPSI" # MPSI, PCSI, BCPST
 
-# Lecture des données parcoursup session 2019 https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri
-df = pd.read_csv("data/données.csv", sep=";", encoding='utf8')
+# Lecture des données parcoursup session 2020 https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?sort=tri&location=3,19.03489,-23.8335&basemap=e69ab1
+df = pd.read_csv("data/fr-esr-parcoursup.csv", sep=";", encoding='utf8')
 
 # Sélection de la filière
-cpge = df[df["Filière de formation détaillée"] == filiere]
+bonneFil = []
+for row in range(0, df.shape[0]):
+    if df["Filière de formation détaillée"].values[row].split(' ')[-1] == filiere:
+        bonneFil.append(1)
+    else:
+        bonneFil.append(0)
+df["Bonne filière"] = bonneFil
+cpge = df[df["Bonne filière"] == 1]
 
 def formatHTML(string):
     """Modifie une chaine de caractères pour l'afficher en html proprement.
@@ -153,31 +160,6 @@ def scrapUrl(link):
 
     return result
 
-def fillTX(cpge):
-    """Calcule le taux d'accès de chaque formation de cpge (inplace).
-    Formule : rang du dernier appelé / nb de candidats.
-    
-    Si le rang du dernier admis n'est pas renseigné (cas de Sainte Geneviève) alors la formule appliquée est : nb de propositions d'admission / nb de candidats.
-
-    Parameters
-    ----------
-    cpge : pandas.DataFrame
-        DataFrame de toutes les formations.
-    
-    """
-    result = []
-    nRows = cpge.shape[0]
-
-    for i in range(0, nRows):
-        if not np.isnan(cpge["Rang du dernier appelé"].values[i]): # Si le rang du dernier appelé est renseigné
-            tx = cpge["Rang du dernier appelé"].values[i] / cpge["Effectif total des candidats pour une formation"].values[i] * 100
-            result.append(tx)
-        else: # On applique la deuxième formule
-            tx = cpge["Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement"].values[i] / cpge["Effectif total des candidats pour une formation"].values[i] * 100
-            result.append(tx)
-        
-    cpge["Taux d'accès"] = result
-
 def fillFiche(cpge):
     """Remplis : hebergement, infos supplementaires, site, rapport d'examen des voeux, langues et options pour chaque formation de cpge (inplace).
     Selon la fiche parcoursup de l'établissement.
@@ -297,21 +279,16 @@ def resultatsCPGE(cpge, data):
         
         cpge[filiere] = arr
 
-# Calcul du taux d'accès
-print("Taux d'accès")
-fillTX(cpge)
-
 # Calcul de différents indicateurs
 print("Calculs")
-cpge["Decile"] = pd.qcut(cpge["Taux d'accès"], 10, labels = False) # Calcul des déciles
+cpge["Decile"] = pd.qcut(cpge["Indicateur Parcoursup du taux d’accès des candidats ayant postulé à la formation (ratio entre le dernier appelé et le dernier classé)"], 10, duplicates="drop",labels = False) # Calcul des déciles
 cpge["Roulement"] = cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] / cpge["Effectif total des candidats ayant reçu une proposition d’admission de la part de l’établissement"] # Calcul du "roulement" : proportion des élèves qui acceptent ce voeu
 cpge["% d'admis en internat"] = cpge["Dont effectif des admis en internat"] / cpge["Effectif total des candidats ayant accepté la proposition de l’établissement (admis)"] * 100 # Pourcentage d'internes sur les élèves
 cpge["Département"] = cpge["Département de l’établissement"] + " (" + cpge["Code départemental de l’établissement"]+ ")" # Département
 
 # Arondi pour certaines colonnes
 print("Arondi")
-cpge = cpge.round({"Taux d'accès": 2,
-    "Roulement": 2,
+cpge = cpge.round({"Roulement": 2,
     "% d’admis néo bacheliers avec mention Très Bien au bac": 2,
     "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale": 2,
     "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)": 2,
@@ -357,19 +334,19 @@ formatURL(cpge, ["Lien de la formation sur la plateforme Parcoursup", "Site", "R
 
 # Tri des données en fonction du % d'admission bacheliers
 print("Tri")
-cpge.sort_values(by="Taux d'accès", inplace=True)
+cpge.sort_values(by=["Indicateur Parcoursup du taux d’accès des candidats ayant postulé à la formation (ratio entre le dernier appelé et le dernier classé)", "Roulement"], ascending=[True, False],inplace=True)
 
 nCols, nRows = cpge.shape[1], cpge.shape[0]
 print(cpge.shape)
 
 # Sélection des paramètres voulus
+cpge.rename(columns={"Indicateur Parcoursup du taux d’accès des candidats ayant postulé à la formation (ratio entre le dernier appelé et le dernier classé)": "Taux d'accès"}, inplace=True)
 parametres = ["Decile",
     "Établissement",
     "Département",
     "Académie de l’établissement",
     "Capacité de l’établissement par formation",
     "Taux d'accès",
-    "Rang du dernier appelé",
     "Roulement",
     "% d’admis ayant reçu leur proposition d’admission à l'ouverture de la procédure principale",
     "% d’admis néo bacheliers issus de la même académie (Paris/Créteil/Versailles réunies)",
@@ -399,14 +376,13 @@ file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Robot
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>
 <style>input {margin-bottom: 10px;padding: 5px;width: 25%;}</style>
-<strong>Tableau synthétique des formations """ + str(filiere) + """ session 2019<br>
+<strong>Tableau synthétique des formations """ + str(filiere) + """ session 2020<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
-Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?timezone=Europe%2FBerlin&sort=tri' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant</a><br></strong>
+Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?sort=tri&location=3,19.03489,-23.8335&basemap=e69ab1' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant (palmarès 2020)</a><br></strong>
 <p>&nbsp&nbsp&nbsp&nbsp&nbspPrécisions : <br>
 Ce tableau contient """ + str(round(nRows)) + """ formations.<br>
-Les formations sont divisés en déciles (indexés de 0 à 9) en fonction de leur taux d'accès.<br>
-Le taux d'accès est calculé selon la formule : rang du dernier appelé / nb de candidats * 100.<br>
-Dans le cas où le rang du dernier appelé n'est pas fourni on utilise : nb de propositions d'admission / nb de candidats * 100 (cas de Sainte Geneviève)<br>
+Les formations sont divisées en déciles (indexés de 0 à 9) en fonction de leur taux d'accès.<br>
+Le taux d'accès utilisé est celui de Parcoursup (rang du dernier appelé / nb de candidats).<br>
 Le roulement est défini par la formule : nb de candidats ayant accepté la proposition d'admission / nb de candidats ayant reçu une proposition d’admission.<br>
 Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'évaluer à quel point ce voeu est souhaité par les étudiants.<br>
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
