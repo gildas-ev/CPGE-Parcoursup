@@ -2,7 +2,7 @@
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>
-<style>input {margin-bottom: 10px;padding: 5px;width: 25%;}</style>
+<style>input {margin-bottom: 10px;padding: 5px;width: 30%;}</style>
 <strong>Tableau synthétique des formations BCPST session 2020<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?sort=tri&location=3,19.03489,-23.8335&basemap=e69ab1' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant (palmarès 2020)</a><br></strong>
@@ -15,7 +15,7 @@ Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
 Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
 Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
-<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un département ou une académie">
+<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un statut, un département ou une académie">
 <script>
 function searchTable() {
   var input, filter, found, table, tr, td, i, j;
@@ -34,6 +34,9 @@ function searchTable() {
     else if (td[3].innerHTML.toUpperCase().indexOf(filter) > -1) {
       found = true;
     }
+    else if (td[4].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        found = true;
+    }
     
     if (found) {
         tr[i].style.display = "";
@@ -49,6 +52,7 @@ function searchTable() {
     <tr style="text-align: right;">
       <th>Decile</th>
       <th>Établissement</th>
+      <th>Statut de l’établissement de la filière de formation (public, privé…)</th>
       <th>Département</th>
       <th>Académie de l’établissement</th>
       <th>Capacité de l’établissement par formation</th>
@@ -74,6 +78,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>Lycée Sainte Geneviève</td>
+      <td>Privé sous contrat d'association</td>
       <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>39.0</td>
@@ -85,7 +90,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0783053V&g_ti_cod=10074&c_ja_cod=17796" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0783053V&g_ti_cod=10074&c_ja_cod=17796</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10074&g_ta_cod=10074" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10074&g_ta_cod=10074</a></td>
       <td><a href="http://www.bginette.com" target="_blank">http://www.bginette.com</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat obligatoire</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat obligatoire</td>
       <td>100.00</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>allemand, anglais, arabe, chinois, espagnol, italien (autres langues se renseigner). <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>1 BCPST-VETO 2e année</td>
       <td>875 élèves de CPGE, tous internes. Établissement sous tutelle jésuite. Accompagnement individuel et personnalisé. L'internat est ouvert 7 jours sur 7, hors vacances scolaires. Parc de 8 hectares. Activités sportives et culturelles. Places disponibles en internat de la réussite. Plus d'informations sur le site internet de l'établissement (www.bginette.com).</td>
@@ -97,6 +102,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>L.E.G.T.A. Toulouse Auzeville</td>
+      <td>Public</td>
       <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>35.0</td>
@@ -108,7 +114,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0311262D&g_ti_cod=4124&c_ja_cod=2907" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0311262D&g_ti_cod=4124&c_ja_cod=2907</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4124&g_ta_cod=4124" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4124&g_ta_cod=4124</a></td>
       <td><a href="http://www.citesciencesvertes.fr" target="_blank">http://www.citesciencesvertes.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>54.29</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>1 classe</td>
       <td>Situé à proximité de l'Université des Sciences Toulouse III Paul Sabatier, le lycée fait partie de l'AGROBIOPOLE d'Auzeville: site accueillant divers organismes d'enseignement et de recherche du domaine des Agrobiosciences (INRA, INP-ENSAT, CNRS). Hébergement possible en internat (garçons, filles) pour les étudiants de la classe préparatoire BCPST-véto ou en résidence HLM située dans l'enceinte du lycée(réservée en priorité à nos étudiants de classe préparatoire et de BTSA).</td>
@@ -120,6 +126,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>Lycée Henri IV</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
@@ -131,7 +138,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750654D&g_ti_cod=8966&c_ja_cod=7514" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750654D&g_ti_cod=8966&c_ja_cod=7514</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8966&g_ta_cod=8966" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8966&g_ta_cod=8966</a></td>
       <td><a href="https://lycee-henri4.com" target="_blank">https://lycee-henri4.com</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>27.08</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Allemand, Anglais, Arabe, Chinois, Espagnol, Italien Russe <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Anglais, Arabe, Chinois, Espagnol, Italien Russe <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>Une division</td>
       <td>Le lycée Henri-IV accueille environ 1100 élèves de classes préparatoires scientifiques, économiques et littéraires, d’origines sociales et géographiques diverses, dans un environnement exigeant et bienveillant.L'internat du lycée est mixte : 158 places pour filles et garçons dans les locaux du Lycée Henri-IV. L'internat Lourcine, qui fait partie du Lycée de la réussite Jean Zay, loge aussi environ 90 étudiants de l’établissement.Par ailleurs, le lycée Henri-IV est en partenariat avec l’université PSL pour le Cycle Pluridisciplinaire d’Etudes Supérieures (CPES) qui accueille 150 étudiants répartis dans 3 filières : Humanités, Sciences et Sciences économiques, sociales et juridiques (SESJ).</td>
@@ -143,6 +150,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>Lycée Descartes</td>
+      <td>Public</td>
       <td>Indre-et-Loire (37)</td>
       <td>Orléans-Tours</td>
       <td>48.0</td>
@@ -166,6 +174,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>Lycée Joffre</td>
+      <td>Public</td>
       <td>Hérault (34)</td>
       <td>Montpellier</td>
       <td>47.0</td>
@@ -177,7 +186,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340038G&g_ti_cod=4483&c_ja_cod=3247" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0340038G&g_ti_cod=4483&c_ja_cod=3247</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4483&g_ta_cod=4483" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4483&g_ta_cod=4483</a></td>
       <td><a href="https://www.lyc-joffre-montpellier.ac-montpellier.fr/" target="_blank">https://www.lyc-joffre-montpellier.ac-montpellier.fr/</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>4.26</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais, allemand, espagnol, italien <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>anglais, allemand, espagnol, italien, russe <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>1</td>
       <td>adresse internet secrétariat CPGE : cpge.joffre@ac-montpellier.frsite du lycée :https://www.lyc-joffre-montpellier.ac-montpellier.fr/</td>
@@ -189,6 +198,7 @@ function searchTable() {
     <tr>
       <td>0</td>
       <td>LEGTPA Louis Pasteur (Clermont-Marmilhat)</td>
+      <td>Public</td>
       <td>Puy-de-Dôme (63)</td>
       <td>Clermont-Ferrand</td>
       <td>32.0</td>
@@ -200,7 +210,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630984C&g_ti_cod=7591&c_ja_cod=6191" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630984C&g_ti_cod=7591&c_ja_cod=6191</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7591&g_ta_cod=7591" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7591&g_ta_cod=7591</a></td>
       <td><a href="http://www.marmilhat.fr" target="_blank">http://www.marmilhat.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>48.48</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Espagnol/Allemand <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Situé aux portes de Clermont-Ferrand, au sein du pôle agronomique de Marmilhat (VetAgroSup, DRAAF, ONF,...), l'établissement accueille élèves et étudiants dans des conditions privilégiées : classes à effectif réduit, laboratoires et salles informatiques récents et modernes, internat filles et garçons. Il existe également des possibilités de logement à proximité à Lempdes (liste de logeurs à demander au secrétariat du lycée).</td>
@@ -212,6 +222,7 @@ function searchTable() {
     <tr>
       <td>1</td>
       <td>Lycée Jean Rostand</td>
+      <td>Public</td>
       <td>Bas-Rhin (67)</td>
       <td>Strasbourg</td>
       <td>48.0</td>
@@ -223,7 +234,7 @@ function searchTable() {
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7922&g_ta_cod=7922" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7922&g_ta_cod=7922</a></td>
       <td><a href="http://www.lycee-jean-rostand.fr" target="_blank">http://www.lycee-jean-rostand.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Demi-pension</td>
       <td>34.78</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS OBLIGATOIRE <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND OU ESPAGNOL Facultatif <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>1</td>
       <td>INTERNAT  exclusivement réservé aux élèves de CPGE  (Classes Préparatoires aux Grandes Ecoles)</td>
@@ -235,6 +246,7 @@ function searchTable() {
     <tr>
       <td>1</td>
       <td>Lycée Pierre De Fermat</td>
+      <td>Public</td>
       <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>96.0</td>
@@ -246,7 +258,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310036W&g_ti_cod=4038&c_ja_cod=2823" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0310036W&g_ti_cod=4038&c_ja_cod=2823</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4038&g_ta_cod=4038" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4038&g_ta_cod=4038</a></td>
       <td><a href="http://fermat.entmip.fr" target="_blank">http://fermat.entmip.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>35.00</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND, ESPAGNOL, ITALIEN, ARABE <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>DEUX CLASSES</td>
       <td>Internat garçons et filles réservés aux étudiants de CPGE ; nombre de places limité. Internat ouvert les week-ends mais pas pendant les petites vacances scolaires sauf pour les épreuves écrites des concours, pour les étudiants de 2e année uniquement.</td>
@@ -258,6 +270,7 @@ function searchTable() {
     <tr>
       <td>1</td>
       <td>Lycée Saint-Louis (6ème)</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>144.0</td>
@@ -269,7 +282,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750658H&g_ti_cod=8984&c_ja_cod=7532" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750658H&g_ti_cod=8984&c_ja_cod=7532</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8984&g_ta_cod=8984" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8984&g_ta_cod=8984</a></td>
       <td><a href="https://lycee-saintlouis.ac-paris.fr" target="_blank">https://lycee-saintlouis.ac-paris.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>24.11</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais, Allemand, Espagnol <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Anglais, Allemand, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>3 divisions de BCPST</td>
       <td>Le lycée Saint-Louis accueille uniquement des élèves de CPGE   (1400 étudiants, 31 divisions). Il dispose d'un internat de 347 places (garçons = 186, filles= 161).</td>
@@ -281,6 +294,7 @@ function searchTable() {
     <tr>
       <td>1</td>
       <td>Lycée du Parc</td>
+      <td>Public</td>
       <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>135.0</td>
@@ -292,7 +306,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690026D&g_ti_cod=8184&c_ja_cod=6754" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690026D&g_ti_cod=8184&c_ja_cod=6754</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8184&g_ta_cod=8184" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8184&g_ta_cod=8184</a></td>
       <td><a href="http://lyceeduparc.fr" target="_blank">http://lyceeduparc.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>13.74</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais obligatoire (textes nationaux) <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Arabe, Espagnol, Italien, Russe <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2e année (3 divisions)</td>
       <td>Tradition, excellence et humanisme se conjuguent en Province à proximité du Parc de la tête d'Or de LYON pour ce prestigieux lycée à recrutement national et international. Implanté dans un quartier très agréable bien desservi par les transports, proche de la gare Lyon Part Dieu et à 45 minutes de l'aéroport Saint Exupéry, le lycée du Parc, offre à ses 1300 étudiants en CPGE des conditions de travail privilégiées. Un CDI riche et moderne, un complexe sportif, une piscine, un internat rénové et de nombreux foyers à proximité (statut demi-pensionnaire ou interne-externé) permettent un épanouissement personnel. Un corps professoral de très haut niveau, une excellente ambiance de travail et de solidarité entre élèves, et un accompagnement des professeurs, tant sur le plan humain que scolaire, conduisent à la réussite de tous les élèves dans les nombreuses Grandes Ecoles dont les plus prestigieuses.</td>
@@ -304,6 +318,7 @@ function searchTable() {
     <tr>
       <td>1</td>
       <td>Lycée La Martiniere Monplaisir</td>
+      <td>Public</td>
       <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>48.0</td>
@@ -315,7 +330,7 @@ function searchTable() {
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8553&g_ta_cod=8553" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8553&g_ta_cod=8553</a></td>
       <td><a href="https://martiniere-monplaisir.ent.auvergnerhonealpes.fr/" target="_blank">https://martiniere-monplaisir.ent.auvergnerhonealpes.fr/</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>40.43</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand Espagnol Italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST2</td>
       <td>A deux pas de la station du métro D "Monplaisir Lumière" dans le 8ème arrondissement, le lycée La Martinière Monplaisir est le seul lycée lyonnais à proposer toutes les filières de Classes Préparatoires aux Grandes Écoles scientifiques existantes, en première comme en deuxième année ainsi qu'une offre de formation de Technicien Supérieur dans les filières Bâtiment/Travaux Publics et Fluides Energies Domotique (Scolaire et Apprentissage). Les étudiants y bénéficient d'un internat (places limitées) et d'installations sportives entièrement rénovés leur permettant de fournir un travail intensif tout en préservant leur équilibre de vie, et conduisant harmonieusement à d'excellents résultats aux concours scientifiques et examens de BTS. Le quartier propose par ailleurs de très nombreuses possibilités de logement (par le CROUS ou les particuliers) pour ceux qui ne viendraient pas à l'internat.</td>
@@ -327,6 +342,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée Champollion</td>
+      <td>Public</td>
       <td>Isère (38)</td>
       <td>Grenoble</td>
       <td>96.0</td>
@@ -338,7 +354,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0380027Y&g_ti_cod=4922&c_ja_cod=3659" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0380027Y&g_ti_cod=4922&c_ja_cod=3659</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4922&g_ta_cod=4922" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4922&g_ta_cod=4922</a></td>
       <td><a href="http://www.lycee-champollion.fr/" target="_blank">http://www.lycee-champollion.fr/</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>15.62</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Italien, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2ème année (SPEBIO)</td>
       <td>Le lycée Champollion est situé en centre ville, à 10 mn à pied de la gare. Il dispose d'un internat et de nombreuses possibilités de logement à proximité (résidences du Crous) Nouveau: depuis la rentrée 2015, les étudiants de CPGE doivent obligatoirement s'inscrire en parallèle dans un établissement universitaire de l'académie.</td>
@@ -350,6 +366,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée Hoche</td>
+      <td>Public</td>
       <td>Yvelines (78)</td>
       <td>Versailles</td>
       <td>96.0</td>
@@ -361,7 +378,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782562L&g_ti_cod=10045&c_ja_cod=8558" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0782562L&g_ti_cod=10045&c_ja_cod=8558</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10045&g_ta_cod=10045" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10045&g_ta_cod=10045</a></td>
       <td><a href="http://www.lyc-hoche-versailles.ac-versailles.fr" target="_blank">http://www.lyc-hoche-versailles.ac-versailles.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>NaN</td>
       <td>25.53</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Arabe, Espagnol, Russe <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST (2 classes)</td>
       <td>Internat ouvert du dimanche soir 20h (pas de repas) au samedi 13h30 (après repas.</td>
@@ -373,6 +390,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée Francois René De Chateaubriand</td>
+      <td>Public</td>
       <td>Ille-et-Vilaine (35)</td>
       <td>Rennes</td>
       <td>144.0</td>
@@ -384,7 +402,7 @@ function searchTable() {
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4672&g_ta_cod=4672" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4672&g_ta_cod=4672</a></td>
       <td><a href="http://www.lycee-chateaubriand.fr" target="_blank">http://www.lycee-chateaubriand.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>35.71</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANG <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALL - ESP - ITALIEN <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST</td>
       <td>Le recrutement à l'internat est basé sur des critères sociaux. Le classement des demandes se fait en fonction du Revenu Brut Global et des parts fiscales des familles des candidats. Toute fausse déclaration pourra entraîner la radiation de l'internat.</td>
@@ -396,6 +414,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée CLEMENCEAU</td>
+      <td>Public</td>
       <td>Marne (51)</td>
       <td>Reims</td>
       <td>48.0</td>
@@ -406,8 +425,8 @@ function searchTable() {
       <td>80.85</td>
       <td>NaN</td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6058&g_ta_cod=6058" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6058&g_ta_cod=6058</a></td>
-      <td><a href="http://www.lycee-clemenceau-reims.fr" target="_blank">http://www.lycee-clemenceau-reims.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td><a href="https://lyc-clemenceau.monbureaunumerique.fr/" target="_blank">https://lyc-clemenceau.monbureaunumerique.fr/</a></td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>40.43</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS - ALLEMAND <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ANGLAIS  - ALLEMAND - ESPAGNOL <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST  2ème année - 1 Classe</td>
       <td>M. Ludovic FARCEProviseur adjoint Responsable des C.P.G.EMme Pauly CécileSecrétaire C.P.G.ETél : 03.26.35.00.64</td>
@@ -419,6 +438,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée Pierre Corneille</td>
+      <td>Public</td>
       <td>Seine-Maritime (76)</td>
       <td>Normandie</td>
       <td>48.0</td>
@@ -430,7 +450,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760090K&g_ti_cod=9588&c_ja_cod=8119" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0760090K&g_ti_cod=9588&c_ja_cod=8119</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9588&g_ta_cod=9588" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9588&g_ta_cod=9588</a></td>
       <td><a href="http://lgcorneille-lyc.spip.ac-rouen.fr/" target="_blank">http://lgcorneille-lyc.spip.ac-rouen.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>18.75</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>anglais-allemand-espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST</td>
       <td>Le lycée Corneille dispose d'un internat qui accueille exclusivement 146 élèves (90 places pour des garçons et 56 places pour les filles) des Classes Préparatoires aux Grandes Écoles.TOUTE CANDIDATURE AVEC INTERNAT, RETENUE PAR LA COMMISSION ET VALIDÉE AVEC UN "OUI DÉFINITIF" PAR LE CANDIDAT, DEVRA OBLIGATOIREMENT FAIRE L'OBJET D'UNE INSCRIPTION AVEC INTERNAT.Le bâtiment est situé à proximité  du lycée(10 min à pied). C'est un lieu de vie et d'apprentissage de la vie en collectivité où l'étudiant partage sa chambre avec deux camarades. Un règlement détaille les droits et obligations des élèves internes. Il définit les règles de vie qui doivent être respectées par l'ensemble des membres de la communauté, en particulier les horaires d'entrée et de sortie, l'utilisation des locaux, le mode de contrôle des présences, etc.Tout est mis en œuvre pour garantir de bonnes conditions de vie et de travail personnel aux élèves. En contrepartie, on attend de chacun une attitude irréprochable, propice au confort et à la réussite de tous. Le montant est de 1505 euros pour l'année 2020.L'internat est fermé du samedi matin (à 7h20) au dimanche soir (20h00) et pendant les vacances. Les internes peuvent donc être accueillis dès le dimanche soir (à partir de 20h00 jusqu'à 23h00) et la veille de chaque retour de vacances.  Remarque: Les internes du lycée Pierre Corneille déjeunent le midi au restaurant scolaire du lycée Pierre Corneille. En revanche, ils prennent leur petit-déjeuner et leur diner au restaurant scolaire du lycée Jeanne d'Arc situé à proximité immédiate de l'internat.</td>
@@ -442,6 +462,7 @@ function searchTable() {
     <tr>
       <td>2</td>
       <td>Lycée général Clemenceau</td>
+      <td>Public</td>
       <td>Loire-Atlantique (44)</td>
       <td>Nantes</td>
       <td>96.0</td>
@@ -453,7 +474,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440021J&g_ti_cod=5423&c_ja_cod=4136" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0440021J&g_ti_cod=5423&c_ja_cod=4136</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5423&g_ta_cod=5423" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5423&g_ta_cod=5423</a></td>
       <td><a href="http://gclemenceau.e-lyco.fr" target="_blank">http://gclemenceau.e-lyco.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>19.78</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>allemand  espagnol (chinois italien portugais russe si effectif suffisant) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>oui</td>
       <td>Les transports en commun SNCF, TRAM et BUS sont à proximité immédiate. L'internat filles et garçons offre 180 places en chambres doubles pour l'ensemble de l'établissement.</td>
@@ -465,6 +486,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée agricole Angers le Fresne</td>
+      <td>Public</td>
       <td>Maine-et-Loire (49)</td>
       <td>Nantes</td>
       <td>32.0</td>
@@ -476,7 +498,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0490946M&g_ti_cod=5919&c_ja_cod=4600" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0490946M&g_ti_cod=5919&c_ja_cod=4600</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5919&g_ta_cod=5919" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5919&g_ta_cod=5919</a></td>
       <td><a href="http://le-fresne.paysdelaloire.e-lyco.fr/" target="_blank">http://le-fresne.paysdelaloire.e-lyco.fr/</a></td>
-      <td>Internat filles<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>14.63</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>idem</td>
       <td>Le lycée Le Fresne est situé à environ 4 km d'Angers sur la commune de Sainte-Gemmes-sur-Loire dans un parc magnifique, le long de la Maine.Il regroupe environ 500 élèves et étudiants répartis dans 20 classes.Les formations sont nombreuses et diversifiées (Bac Général, Bac Technologique, Bacs Professionnels, BTSA, Licences Professionnelles, Classe Préparatoire aux grandes écoles).</td>
@@ -488,6 +510,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée Masséna</td>
+      <td>Public</td>
       <td>Alpes-Maritimes (06)</td>
       <td>Nice</td>
       <td>48.0</td>
@@ -499,7 +522,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060030A&g_ti_cod=2208&c_ja_cod=1146" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0060030A&g_ti_cod=2208&c_ja_cod=1146</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2208&g_ta_cod=2208" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2208&g_ta_cod=2208</a></td>
       <td><a href="http://www.lycee-massena.fr/" target="_blank">http://www.lycee-massena.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>34.15</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais, <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol, Italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST seconde année ( une division)</td>
       <td>Lycée historique pour les classes prépas, le lycée Masséna de Nice est un établissement emblématique au niveau national et régional. Prenant appui sur une longue tradition d'accueil, d'accompagnement et d'intégration dans toutes les grandes écoles, notamment les plus prestigieuses, le lycée Masséna dispose d'une offre de formation élargie, d'un corps professoral très expérimenté et d'un solide réseau d'anciens élèves. Établissement de centre ville de plus de  1600 élèves dont 800 en CPGE répartis entre 19 divisions. Cours du lundi au samedi midi. Réfectoire, cafétéria et internat permettant d'accueillir une centaine d'étudiants de 1ère année de CPGE et quelques étudiants de 2ème année.Depuis la rentrée 2016 l'internat est ouvert le week-end (hors vacances scolaires),mais sans restauration dans l'établissement(nombreuses possibilités aux abords directs). Possibilité d'être interne-externé (petit déjeuner + repas + études sur place jusqu'à 22h). Offre importante de logements extérieurs (résidences universitaires, agences,réseaux sociaux) sous la responsabilité des familles. Aéroport à 6 km  et gare SNCF à 2 km. Lignes de bus et tram directs devant le lycée. Bibliothèques universitaires et municipales, cinémathèque, théâtre et opéra à proximité. Parc de 12 ha et centre historique de Nice Vieille Ville devant le lycée. Le 2 décembre 2019 le Conseil d’administration a renouvelé et validé deux  conventions de proximité avec les universités de Nice et de Toulon  dans le cadre de la sécurisation de parcours des étudiants en CPGE.</td>
@@ -511,6 +534,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée Ozenne</td>
+      <td>Public</td>
       <td>Haute-Garonne (31)</td>
       <td>Toulouse</td>
       <td>48.0</td>
@@ -534,6 +558,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée Jean-Baptiste Say</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
@@ -557,6 +582,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée Montaigne</td>
+      <td>Public</td>
       <td>Gironde (33)</td>
       <td>Bordeaux</td>
       <td>96.0</td>
@@ -568,7 +594,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330021U&g_ti_cod=4273&c_ja_cod=3052" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0330021U&g_ti_cod=4273&c_ja_cod=3052</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4273&g_ta_cod=4273" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=4273&g_ta_cod=4273</a></td>
       <td><a href="http://www.montaigne-bordeaux.fr" target="_blank">http://www.montaigne-bordeaux.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>22.47</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND-ESPAGNOL (ARABE-CHINOIS-ITALIEN sous réserve d'un nombre suffisant d'étudiants) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>CPGE BCPST 2ème année</td>
       <td>Site miroir du Lycée Montaigne :http://www.montaigne-bordeaux.fr</td>
@@ -580,6 +606,7 @@ function searchTable() {
     <tr>
       <td>3</td>
       <td>Lycée Fénelon</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
@@ -591,7 +618,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750660K&g_ti_cod=8988&c_ja_cod=7536" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750660K&g_ti_cod=8988&c_ja_cod=7536</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8988&g_ta_cod=8988" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8988&g_ta_cod=8988</a></td>
       <td><a href="http://www.fenelon-paris.fr" target="_blank">http://www.fenelon-paris.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>6.38</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais, allemand <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>anglais, allemand, espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST 2°année</td>
       <td>Le lycée Fénelon propose un internat/externé (ouverture du lycée jusqu'à 22h tous les soirs  : salles de travail et cantine). Le lycée Fénelon ne dispose pas d'internat en propre, mais de places réservées dans deux internats : les demandes sont à adresser au lycée Jean Zay qui attribue et gère ces places.</td>
@@ -603,6 +630,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Assomption Bellevue</td>
+      <td>Privé sous contrat d'association</td>
       <td>Rhône (69)</td>
       <td>Lyon</td>
       <td>48.0</td>
@@ -614,7 +642,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690539L&g_ti_cod=8296&c_ja_cod=6861" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0690539L&g_ti_cod=8296&c_ja_cod=6861</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8296&g_ta_cod=8296" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8296&g_ta_cod=8296</a></td>
       <td><a href="https://www.assomption-lyon.org/nos-etablissements/enseignement-superieur" target="_blank">https://www.assomption-lyon.org/nos-etablissements/enseignement-superieur</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Demi-pension</td>
       <td>61.70</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br> <br>Pas de LV2<br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST</td>
       <td>Le Pôle Supérieur est situé au 172 avenue Jean Jaurès 69007 Lyon, au pied du métro ligne B station J Jaurès.  Bus C7: arrêt Place Jean Jaurès.    Possibilité d'internat.  Accès au restaurant universitaire à 10 minutes.    N'hésitez pas à nous contacter pour de plus amples informations au 04 37 65 30 70</td>
@@ -626,6 +654,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Carnot</td>
+      <td>Public</td>
       <td>Côte-d'or (21)</td>
       <td>Dijon</td>
       <td>48.0</td>
@@ -637,7 +666,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0210015C&g_ti_cod=3179&c_ja_cod=2016" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0210015C&g_ti_cod=3179&c_ja_cod=2016</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3179&g_ta_cod=3179" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3179&g_ta_cod=3179</a></td>
       <td><a href="http://lyc21-carnot.ac-dijon.fr" target="_blank">http://lyc21-carnot.ac-dijon.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>8.33</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand Espagnol Italien (selon effectif) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST2</td>
       <td>Toutes les personnes ayant accepté définitivement la proposition d'intégration du lycée Carnot recevront un dossier d'inscription par voie postale; Elles sont attendues à la rentrée de septembre 2021. Aucune confirmation ne sera faite avant la rentrée scolaire. Vous pourrez télécharger le justificatif d'inscription depuis votre dossier parcoursup après avoir accepté définitivement la proposition de formation.</td>
@@ -649,6 +678,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Roland Garros</td>
+      <td>Public</td>
       <td>La Réunion (974)</td>
       <td>La Réunion</td>
       <td>42.0</td>
@@ -660,7 +690,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9740002J&g_ti_cod=11885&c_ja_cod=10318" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9740002J&g_ti_cod=11885&c_ja_cod=10318</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11885&g_ta_cod=11885" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11885&g_ta_cod=11885</a></td>
       <td><a href="http://lyc-rgarros.ac-reunion.fr" target="_blank">http://lyc-rgarros.ac-reunion.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Demi-pension</td>
       <td>60.47</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>loicdurandrun@orange.fr</td>
       <td></td>
@@ -672,6 +702,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Marcelin Berthelot</td>
+      <td>Public</td>
       <td>Val-de-Marne (94)</td>
       <td>Créteil</td>
       <td>144.0</td>
@@ -683,7 +714,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0940120V&g_ti_cod=11393&c_ja_cod=9841" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0940120V&g_ti_cod=11393&c_ja_cod=9841</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11393&g_ta_cod=11393" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11393&g_ta_cod=11393</a></td>
       <td><a href="http://www.lycee-berthelot.fr" target="_blank">http://www.lycee-berthelot.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>5.63</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANG <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ANG, ALL, ESP, ITAL, CHINOIS <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Le lycée est situé dans un secteur très résidentiel à vingt minutes du centre de Paris. Il possède un centre de documentation de 24200 ouvrages. Il offre un internat et de larges possibilités d'activités culturelles et sportives.Accueillant plus de mille élèves en CPGE et en BTS, le lycée obtient des performances excellentes et régulières qui sécurisent les parcours. Il vise à développer des comportements éthiques et de solidarité chez des étudiants destinés à occuper des fonctions dirigeantes dans la société de demain. Cela y crée une ambiance de travail faite à la fois d'exigence mais aussi d'une tradition de bienveillance et d'attention au devenir des élèves.</td>
@@ -695,6 +726,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Victor Hugo</td>
+      <td>Public</td>
       <td>Doubs (25)</td>
       <td>Besancon</td>
       <td>45.0</td>
@@ -706,7 +738,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0250007X&g_ti_cod=3452&c_ja_cod=2273" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0250007X&g_ti_cod=3452&c_ja_cod=2273</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3452&g_ta_cod=3452" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3452&g_ta_cod=3452</a></td>
       <td><a href="http://lyceehugobesancon.org" target="_blank">http://lyceehugobesancon.org</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>51.11</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand - Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Internat ouvert du dimanche à 19h au vendredi à 19 h. Fermé le week-end et durant les congés scolaires</td>
@@ -718,6 +750,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Emmanuel d'Alzon</td>
+      <td>Privé sous contrat d'association</td>
       <td>Gard (30)</td>
       <td>Montpellier</td>
       <td>45.0</td>
@@ -729,7 +762,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300080Z&g_ti_cod=3961&c_ja_cod=2750" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0300080Z&g_ti_cod=3961&c_ja_cod=2750</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3961&g_ta_cod=3961" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=3961&g_ta_cod=3961</a></td>
       <td><a href="https://www.dalzon.com/" target="_blank">https://www.dalzon.com/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>40.00</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Espagnol, Allemand, Italien, Russe (Chinois pour certains concours) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>Spé BCPST</td>
       <td>- Suivi pédagogique individualisé - 3 Résidences étudiantes sur le Campus (studios ou chambres étudiantes) et un internat.Pour obtenir un studio,une chambre ou une place en internat, s'inscrire obligatoirement sur Parcoursup avec internat. - Bourses D’État - Possibilités de réduction de frais de scolarité sur critères sociaux</td>
@@ -741,6 +774,7 @@ function searchTable() {
     <tr>
       <td>4</td>
       <td>Lycée Pierre-Gilles de Gennes - ENCPB</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>48.0</td>
@@ -752,7 +786,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750685M&g_ti_cod=9073&c_ja_cod=7619" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750685M&g_ti_cod=9073&c_ja_cod=7619</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9073&g_ta_cod=9073" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9073&g_ta_cod=9073</a></td>
       <td><a href="http://www.encpb.org" target="_blank">http://www.encpb.org</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Demi-pension</td>
       <td>5.13</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand - Espagnol  (autres langues vivantes mutualisées avec d'autres lycées) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>classe de 2ème année BCPST2</td>
       <td>Informations générales sur le site Internet http://www.encpb.org(documentations téléchargeables ou envoyés sur demande).Hébergement possible :- en CPGE,  en "internat de la réussite" sur les 3 sites du lycée d'Etat Jean-Zay-Internat d'excellence (http://www.lycee-etat-jean-zay.fr), au Foyer Coubertin, à l'internat Lourcine et au lycée Jean Zay (demande à formuler en "internat" sur ParcourSup). Les places en internat d'excellence de CPGE sont attribuées sous condition de bourse et en priorité pour les étudiants domiciliés en zone urbaine de politique de la ville.- en BTS, à l'internat du lycée Maurice Ravel sur critère social (demande à formuler au moment de l'inscription. Environ 14 places attribuées)</td>
@@ -764,6 +798,7 @@ function searchTable() {
     <tr>
       <td>5</td>
       <td>Lycée Blaise Pascal</td>
+      <td>Public</td>
       <td>Puy-de-Dôme (63)</td>
       <td>Clermont-Ferrand</td>
       <td>48.0</td>
@@ -775,7 +810,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630018C&g_ti_cod=7547&c_ja_cod=6148" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0630018C&g_ti_cod=7547&c_ja_cod=6148</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7547&g_ta_cod=7547" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7547&g_ta_cod=7547</a></td>
       <td><a href="https://lyc-blaise-pascal-clermont.ent.auvergnerhonealpes.fr/" target="_blank">https://lyc-blaise-pascal-clermont.ent.auvergnerhonealpes.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>10.64</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS,ALLEMAND <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ANGLAIS ALLEMAND ESPAGNOL ITALIEN <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Toutes les filières sont représentées : littéraires, économiques et scientifiques. Hébergement : internat filles et garçons du dimanche soir 19h au samedi 12h30. Internat fermé du samedi 12h30 au dimanche 19hPossibilité d'hébergement par le CROUS dans des résidences universitaires.Nombreux hébergements à proximité en foyers ou privés.</td>
@@ -787,6 +822,7 @@ function searchTable() {
     <tr>
       <td>5</td>
       <td>Lycée Henri Poincaré</td>
+      <td>Public</td>
       <td>Meurthe-et-Moselle (54)</td>
       <td>Nancy-Metz</td>
       <td>96.0</td>
@@ -798,7 +834,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0540038Y&g_ti_cod=6247&c_ja_cod=4912" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0540038Y&g_ti_cod=6247&c_ja_cod=4912</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6247&g_ta_cod=6247" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6247&g_ta_cod=6247</a></td>
       <td><a href="http://www.h-poincare.fr" target="_blank">http://www.h-poincare.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>17.35</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>allemand, espagnol, italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>2 divisions</td>
       <td>Le lycée Poincaré est situé au coeur de la ville universitaire de Nancy, à mi-chemin entre la gare et la place Stanislas. 900 étudiants y sont accueillis dans 22 divisions représentant l'ensemble des filières.Notre recrutement est avant tout régional mais accueille des étudiants venus de toute la France et de l'étranger. L'internat mixte, ouvert le week-end, peut héberger 200 internes, les possibilités de logement pour les étudiants étant par ailleurs nombreuses à proximité.Par ailleurs le Lycée s'inscrit pleinement dans la politique d'ouverture sociale du recrutement en CPGE. Il accompagne avec vigilance les parcours et projets individuels.</td>
@@ -810,6 +846,7 @@ function searchTable() {
     <tr>
       <td>5</td>
       <td>Lycée Faidherbe</td>
+      <td>Public</td>
       <td>Nord (59)</td>
       <td>Lille</td>
       <td>96.0</td>
@@ -821,7 +858,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590119J&g_ti_cod=6782&c_ja_cod=5423" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590119J&g_ti_cod=6782&c_ja_cod=5423</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6782&g_ta_cod=6782" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6782&g_ta_cod=6782</a></td>
       <td><a href="http://www.faidherbe.org" target="_blank">http://www.faidherbe.org</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>48.35</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND - ESPAGNOL - ITALIEN - ARABE <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>oui</td>
       <td>Secrétariat CPGE : 03.20.60.50.88 ou 03.20.60.50.52Internat fermé pendant les week-end et congés.Intendance:03.20.60.50.08Possibilité de rendez-vous (Proviseur adjoint), téléphoner au secrétariat.</td>
@@ -833,6 +870,7 @@ function searchTable() {
     <tr>
       <td>5</td>
       <td>Lycée Janson De Sailly</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>96.0</td>
@@ -844,7 +882,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750699C&g_ti_cod=9132&c_ja_cod=7677" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750699C&g_ti_cod=9132&c_ja_cod=7677</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9132&g_ta_cod=9132" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9132&g_ta_cod=9132</a></td>
       <td><a href="http://www.janson-de-sailly.fr" target="_blank">http://www.janson-de-sailly.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>5.88</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Allemand,Anglais,Espagnol, <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand ,Anglais,Espagnol, <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B1<br>Classes de seconde année :  <br>2</td>
       <td></td>
@@ -856,6 +894,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Albert Chatelet</td>
+      <td>Public</td>
       <td>Nord (59)</td>
       <td>Lille</td>
       <td>48.0</td>
@@ -867,7 +906,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590063Y&g_ti_cod=6736&c_ja_cod=5380" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0590063Y&g_ti_cod=6736&c_ja_cod=5380</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6736&g_ta_cod=6736" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6736&g_ta_cod=6736</a></td>
       <td><a href="http://www.chatelet-douai.fr" target="_blank">http://www.chatelet-douai.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>53.19</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand - Espagnol- Italien - Chinois <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST - préparation aux écoles vétérinaires, d'agronomie , de géologie....</td>
       <td>contact CPGE:Mr Mustapha KALEMProviseur-Adjoint en charge des CPGESecrétariat: 03.27.99.97.97       - Mme Boldo -  poste 308</td>
@@ -879,6 +918,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Pothier</td>
+      <td>Public</td>
       <td>Loiret (45)</td>
       <td>Orléans-Tours</td>
       <td>48.0</td>
@@ -890,7 +930,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450049J&g_ti_cod=5651&c_ja_cod=4347" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450049J&g_ti_cod=5651&c_ja_cod=4347</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5651&g_ta_cod=5651" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5651&g_ta_cod=5651</a></td>
       <td><a href="http://www.lycee-pothier.com" target="_blank">http://www.lycee-pothier.com</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat ouvert le week-end<br>Demi-pension</td>
       <td>35.56</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais, Allemand <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Anglais, Allemand, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST deuxième année</td>
       <td>INTERNAT repas et nuit la semaine (OUVERT le week-end nuit mais sans repas).Fermé les vacances scolaires.</td>
@@ -902,6 +942,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Georges De La Tour</td>
+      <td>Public</td>
       <td>Moselle (57)</td>
       <td>Nancy-Metz</td>
       <td>48.0</td>
@@ -913,7 +954,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0572757M&g_ti_cod=6643&c_ja_cod=5290" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0572757M&g_ti_cod=6643&c_ja_cod=5290</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6643&g_ta_cod=6643" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=6643&g_ta_cod=6643</a></td>
       <td><a href="http://georgesdelatour57.fr" target="_blank">http://georgesdelatour57.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>23.08</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>allemand - espagnol - russe - italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2</td>
       <td>Au coeur de METZ, à proximité d'un centre-ville dynamique et accueillant et d'un pôle universitaire, à 5 mn de la gare, GEORGES de La TOUR accueille dans un bâtiment historique :- 3 filières CPGE :.Littéraire (Lettres Supérieures - 1ère Supérieure).Scientifique (BCPST I et II).Economique (ECE I et II)- 2 fillières BTS 1ère et 2ème année :.Economie Sociale et Familiale.Bioanalyses et Contrôles-Formation au Diplôme d'Etat de Conseiller en Economie Sociale et Familiale</td>
@@ -925,6 +966,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Lakanal</td>
+      <td>Public</td>
       <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>96.0</td>
@@ -936,7 +978,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920145H&g_ti_cod=11014&c_ja_cod=9483" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0920145H&g_ti_cod=11014&c_ja_cod=9483</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11014&g_ta_cod=11014" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11014&g_ta_cod=11014</a></td>
       <td><a href="http://www.citescolairelakanal.fr" target="_blank">http://www.citescolairelakanal.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>21.98</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol, Arabe, Italien, Russe <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST 2</td>
       <td></td>
@@ -948,6 +990,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Claude Fauriel</td>
+      <td>Public</td>
       <td>Loire (42)</td>
       <td>Lyon</td>
       <td>48.0</td>
@@ -959,7 +1002,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0420041S&g_ti_cod=5281&c_ja_cod=3997" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0420041S&g_ti_cod=5281&c_ja_cod=3997</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5281&g_ta_cod=5281" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5281&g_ta_cod=5281</a></td>
       <td><a href="http://claude-fauriel.elycee.rhonealpes.fr/" target="_blank">http://claude-fauriel.elycee.rhonealpes.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>30.43</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand - Espagnol - Italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>1 BCPST-Véto</td>
       <td>Le lycée dispose d'un internat ouvert le week-end (sauf veilles de vacances scolaires et week-ends prolongés), accessible aux étudiantes et aux étudiants. De plus, de nombreux logements sont disponibles dans le parc privé à coût raisonnable à proximité du lycée.</td>
@@ -971,6 +1014,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Chaptal</td>
+      <td>Public</td>
       <td>Paris (75)</td>
       <td>Paris</td>
       <td>96.0</td>
@@ -982,7 +1026,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750663N&g_ti_cod=8994&c_ja_cod=7542" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0750663N&g_ti_cod=8994&c_ja_cod=7542</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8994&g_ta_cod=8994" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=8994&g_ta_cod=8994</a></td>
       <td><a href="https://www.ac-paris.fr/serail/jcms/s2_1584175/fr/accueil" target="_blank">https://www.ac-paris.fr/serail/jcms/s2_1584175/fr/accueil</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>9.57</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais, allemand <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Anglais, allemand, espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>2 BIO A et B</td>
       <td>Le lycée Chaptal offre toute la palette des formations dans un souci d'excellence et de convivialité pour permettre à chaque élève de réussir au mieux de ses capacités et de son travail.Un internat (sur place ou sur un des trois sites du lycée Jean Zay) offre des conditions de travail optimales;La desserte (RER RATP et SNCF) est sans comparaison en Ile de France.</td>
@@ -994,6 +1038,7 @@ function searchTable() {
     <tr>
       <td>6</td>
       <td>Lycée Jacques Prevert</td>
+      <td>Public</td>
       <td>Hauts-de-Seine (92)</td>
       <td>Versailles</td>
       <td>38.0</td>
@@ -1017,6 +1062,7 @@ function searchTable() {
     <tr>
       <td>7</td>
       <td>Lycée agricole Le Chesnoy - Les Barres</td>
+      <td>Public</td>
       <td>Loiret (45)</td>
       <td>Orléans-Tours</td>
       <td>34.0</td>
@@ -1028,7 +1074,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450094H&g_ti_cod=5678&c_ja_cod=4374" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0450094H&g_ti_cod=5678&c_ja_cod=4374</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5678&g_ta_cod=5678" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5678&g_ta_cod=5678</a></td>
       <td><a href="http://www.lechesnoy.fr" target="_blank">http://www.lechesnoy.fr</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>88.24</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br> <br>Pas de LV2<br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B1<br>Classes de seconde année :  <br>Une classe</td>
       <td>Pour les Classes Préparatoires aux Grandes Ecoles (CPGE), les étudiants sont hébergés en internat sur le site, en chambre double, même le WE. Pour les filières de BTSA, il n'y a pas d'internat prévu. Une liste de logements est disponible sur le site internet du Chesnoy (infos pratiques). BTSA : Très forte implication dans le milieu professionnel et une belle ouverture à l'international. Pour tous, un cadre propice à la scolarité avec, entre autres, un pôle scientifique comprenant des laboratoires, des amphithéâtres, un bloc machinisme et des salles TIPE.Exploitation agricole polycultures-élevage et centre équestre (UCPA) sur le site du Chesnoy.</td>
@@ -1040,6 +1086,7 @@ function searchTable() {
     <tr>
       <td>7</td>
       <td>Lycée Malherbe</td>
+      <td>Public</td>
       <td>Calvados (14)</td>
       <td>Normandie</td>
       <td>96.0</td>
@@ -1051,7 +1098,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0140013N&g_ti_cod=2818&c_ja_cod=1670" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0140013N&g_ti_cod=2818&c_ja_cod=1670</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2818&g_ta_cod=2818" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2818&g_ta_cod=2818</a></td>
       <td><a href="http://malherbe.etab.ac-caen.fr/" target="_blank">http://malherbe.etab.ac-caen.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>34.74</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND, ESPAGNOL, ITALIEN <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>deux BCPST2</td>
       <td>Pour toute demande de renseignements par écrit, précisez : "Secrétariat CPGE".Les étudiants dont la domiciliation rend impossible ou très difficile un aller-retour pendant le week-end ou les petites vacances doivent déposer une demande d'hébergement au CROUS après leur inscription.</td>
@@ -1063,6 +1110,7 @@ function searchTable() {
     <tr>
       <td>8</td>
       <td>Lycée général privé Externat Chavagnes</td>
+      <td>Privé sous contrat d'association</td>
       <td>Loire-Atlantique (44)</td>
       <td>Nantes</td>
       <td>48.0</td>
@@ -1074,7 +1122,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0442699V&g_ti_cod=5489&c_ja_cod=4201" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0442699V&g_ti_cod=5489&c_ja_cod=4201</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5489&g_ta_cod=5489" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=5489&g_ta_cod=5489</a></td>
       <td><a href="http://www.externat-chavagnes.com" target="_blank">http://www.externat-chavagnes.com</a></td>
-      <td>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>0.00</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>ALLEMAND-ESPAGNOL <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>OUI</td>
       <td>NaN</td>
@@ -1086,6 +1134,7 @@ function searchTable() {
     <tr>
       <td>8</td>
       <td>Lycée Thiers</td>
+      <td>Public</td>
       <td>Bouches-du-Rhône (13)</td>
       <td>Aix-Marseille</td>
       <td>144.0</td>
@@ -1097,7 +1146,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130040Y&g_ti_cod=2548&c_ja_cod=1452" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0130040Y&g_ti_cod=2548&c_ja_cod=1452</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2548&g_ta_cod=2548" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=2548&g_ta_cod=2548</a></td>
       <td><a href="https://www.atrium-sud.fr/web/lgt-thiers-132321/cpge" target="_blank">https://www.atrium-sud.fr/web/lgt-thiers-132321/cpge</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>26.28</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais-allemand-italien-espagnol <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>anglais-allemand-italien-espagnol-chinois russe-arabe (facultatif) <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>3 classes de deuxième année BCPST-VETO - Conventions d'équivalence avec les Universités</td>
       <td>Créé en 1802,aujourd'hui en plein centre ville près du Vieux-Port et de la gare,le lycée Thiers compte 2300 élèves dont plus de 1000  en CPGE bénéficiant de conditions de travail privilégiées. Le lycée Thiers dispose depuis la rentrée 2018 d'un internat externalisé mixte de 180 lits réservé aux CPGE situé à côté du lycée.</td>
@@ -1109,6 +1158,7 @@ function searchTable() {
     <tr>
       <td>8</td>
       <td>Lycée Leonard Limosin</td>
+      <td>Public</td>
       <td>Haute-Vienne (87)</td>
       <td>Limoges</td>
       <td>35.0</td>
@@ -1132,6 +1182,7 @@ function searchTable() {
     <tr>
       <td>8</td>
       <td>Lycée Camille Guérin</td>
+      <td>Public</td>
       <td>Vienne (86)</td>
       <td>Poitiers</td>
       <td>96.0</td>
@@ -1155,6 +1206,7 @@ function searchTable() {
     <tr>
       <td>8</td>
       <td>Lycée Louis Barthou</td>
+      <td>Public</td>
       <td>Pyrénées-Atlantiques (64)</td>
       <td>Bordeaux</td>
       <td>47.0</td>
@@ -1166,7 +1218,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0640055M&g_ti_cod=7706&c_ja_cod=6300" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0640055M&g_ti_cod=7706&c_ja_cod=6300</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7706&g_ta_cod=7706" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7706&g_ta_cod=7706</a></td>
       <td><a href="https://www.lyceelouisbarthou.fr/" target="_blank">https://www.lyceelouisbarthou.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>20.83</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>une division</td>
       <td>Si vous postulez sur une place à l'internat et que vous êtes dans une situation particulière (d'ordre social, médical...) adressez un courrier explicatif à l'établissement avant le 2 avril 2021. Internat ouvert le week-end pour les étudiants internes majeurs qui le souhaitent.  Pensez à établir votre dossier social étudiant auprès du CROUS entre les mois de janvier et mi-avril!</td>
@@ -1178,6 +1230,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Louis Thuillier</td>
+      <td>Public</td>
       <td>Somme (80)</td>
       <td>Amiens</td>
       <td>96.0</td>
@@ -1189,7 +1242,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0800009A&g_ti_cod=10153&c_ja_cod=8664" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0800009A&g_ti_cod=10153&c_ja_cod=8664</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10153&g_ta_cod=10153" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=10153&g_ta_cod=10153</a></td>
       <td><a href="http://thuillier.lyc.ac-amiens.fr" target="_blank">http://thuillier.lyc.ac-amiens.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>55.32</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>LV2 facultative : Anglais, Allemand,Espagnol, Italien <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST 2ème année</td>
       <td>Le lycée Louis THUILLIER se trouve dans une Cité Scolaire de 48 hectares partiellement arborés, bien nantie en installations sportives (gymnases, piscine en réfection,stades). Il a été réhabilité, il y a 5 ans.Il est situé à 20 mn à pied  du centre historique d'Amiens et 15 mn de la bibliothèque. Il est accessible en bus depuis la gare. Son internat possède des bâtiments uniquement accessibles  aux étudiants de CPGE et ouverts exceptionnellement pendant les concours qui se déroulent pendant les vacances de Pâques.</td>
@@ -1201,6 +1254,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Francois Ier</td>
+      <td>Public</td>
       <td>Seine-et-Marne (77)</td>
       <td>Créteil</td>
       <td>48.0</td>
@@ -1212,7 +1266,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770927P&g_ti_cod=9798&c_ja_cod=8317" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0770927P&g_ti_cod=9798&c_ja_cod=8317</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9798&g_ta_cod=9798" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=9798&g_ta_cod=9798</a></td>
       <td><a href="http://www.lyceefrancois1.net" target="_blank">http://www.lyceefrancois1.net</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat ouvert le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>26.09</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>allemand, espagnol <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST2</td>
       <td>L'internat est mixte et en chambre double. Ouvert le week-end sans restauration, il n'accueille personne pendant les congés scolaires.Dans le dossier d’inscription, vous avez obligation de fournir le nom d’un correspondant qui s’engage par écrit à héberger l’interne lors des fermetures de l’internat.</td>
@@ -1224,6 +1278,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Robespierre</td>
+      <td>Public</td>
       <td>Pas-de-Calais (62)</td>
       <td>Lille</td>
       <td>48.0</td>
@@ -1235,7 +1290,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0620006V&g_ti_cod=7328&c_ja_cod=5934" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0620006V&g_ti_cod=7328&c_ja_cod=5934</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7328&g_ta_cod=7328" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=7328&g_ta_cod=7328</a></td>
       <td><a href="http://cpge.lycee-robespierre.fr/" target="_blank">http://cpge.lycee-robespierre.fr/</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Demi-pension</td>
       <td>67.50</td>
       <td><br>Langue vivante 1 : <br> <br> <br>anglais allemand <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>anglais allemand espagnol chinois <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C1<br>Classes de seconde année :  <br>BCPST2 - préparation aux écoles vétérinaires et écoles d'ingénieurs dans différents domaines (biologie, agroalimentaire, environnement,...)</td>
       <td>Voir site CPGE : (adresse ci-dessus)RECRUTEMENT EN CLASSE PREPARATOIRE PREMIERE ANNEE : portail PARCOURSUP : https://www.parcoursup.fr/ -1- Les dossiers sont dématérialisés : TOUTES LES PIECES ENVOYEES A L'ETABLISSEMENT LE SONT PAR LE BIAIS DU SITE -2 - Si vous souhaitez UNE PLACE A L'INTERNAT : pas de fiche à envoyer par  courrier. Pour nous informer d'une situation particulière : constituer un dossier comportant des éléments susceptibles de nous permettre d'évaluer une demande spécifique puis l’envoyer(messagerie ou courrier).IMPORTANT : vous devez toujours demander une place AVEC INTERNAT ET SANS INTERNAT pour assurer votre accueil dans la  formation de votre choix ; même si, dans les premiers temps de la procédure, aucune place n'est disponible à l'internat, des places se libéreront en fin de procédure, de JUILLET A SEPTEMBRE : nous pourrons vous en  proposer une SI VOTRE DOSSIER PEDAGOGIQUE EST ACCEPTE SANS INTERNAT. -3- L'inscription à l'université est obligatoire en CPGE ; le lycée Robespierre a établi des conventions avec les trois universités qui apparaissent sur le site : les indications quant aux modalités d'inscription nous parviendront après la rentrée ; vous en serez informés dès que possible ; le coût d'inscription était de 170 euros pour les non-boursiers ET SANS FRAIS pour les boursiers. -4- POUR TOUS LES ASPECTS DE LA VIE ETUDIANTE : logement, bourses, accueil des étudiants étrangers, services sociaux, etc.: CONTACTER LE CROUS : https://www.crous-lille.fr/contact/    - 5- IMMATRICULATION OBLIGATOIRE POUR LA COUVERTURE SOCIALE : les modalités d'affiliation et autres informations sont disponibles sur le site: https://www.ameli.fr/ ; vous devez aussi régler une cotisation de 92 euros (à partir de juin : http://www.etudiant.gouv.fr/pid33626-cid1)</td>
@@ -1247,6 +1302,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Albert Schweitzer</td>
+      <td>Public</td>
       <td>Seine-Saint-Denis (93)</td>
       <td>Créteil</td>
       <td>35.0</td>
@@ -1258,7 +1314,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0930830X&g_ti_cod=11202&c_ja_cod=9657" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=0930830X&g_ti_cod=11202&c_ja_cod=9657</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11202&g_ta_cod=11202" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11202&g_ta_cod=11202</a></td>
       <td><a href="http://lyceeschweitzer.fr/?page_id=1315" target="_blank">http://lyceeschweitzer.fr/?page_id=1315</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Demi-pension</td>
       <td>3.12</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais,Allemand <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Allemand, Espagnol,Anglais <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : C2<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Dans un cadre agréable, au cœur d'une ville bien reliée au système régional et local de transports, le Lycée Albert Schweitzer du Raincy est le plus grand pôle de CPGE et de BTS du nord-est de l'agglomération parisienne. Il assure à ses étudiants un enseignement de grande  qualité et l'acquisition de méthodes de travail effiaces. Les effectifs, raisonnables, permettent un encadrement attentif, un dialogue constructif et un suivi personnalisé pour chacun. L'hébergement en internat est possible par convention avec un établissement de proximité.</td>
@@ -1270,6 +1326,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Centre Sud</td>
+      <td>Public</td>
       <td>Martinique (972)</td>
       <td>Martinique</td>
       <td>26.0</td>
@@ -1281,7 +1338,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9720825P&g_ti_cod=11832&c_ja_cod=10266" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9720825P&g_ti_cod=11832&c_ja_cod=10266</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11832&g_ta_cod=11832" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11832&g_ta_cod=11832</a></td>
       <td><a href="http://site.ac-martinique.fr/lpocentresud" target="_blank">http://site.ac-martinique.fr/lpocentresud</a></td>
-      <td>Internat mixte<br>Internat fermé le Week-end<br>Demi-pension</td>
+      <td>Internat mixte<br>Internat fermé le week-end<br>Demi-pension</td>
       <td>50.00</td>
       <td><br>Langue vivante 1 : <br> <br> <br>ANGLAIS <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br> <br>Pas de LV2<br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>1</td>
       <td>Internat,</td>
@@ -1293,6 +1350,7 @@ function searchTable() {
     <tr>
       <td>9</td>
       <td>Lycée Baimbridge</td>
+      <td>Public</td>
       <td>Guadeloupe (971)</td>
       <td>Guadeloupe</td>
       <td>45.0</td>
@@ -1304,7 +1362,7 @@ function searchTable() {
       <td><a href="https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9710003B&g_ti_cod=11735&c_ja_cod=10172" target="_blank">https://dossier.parcoursup.fr/Candidats/public/fiches/telechargerRapportPublic?g_ea_cod=9710003B&g_ti_cod=11735&c_ja_cod=10172</a></td>
       <td><a href="https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11735&g_ta_cod=11735" target="_blank">https://dossier.parcoursup.fr/Candidat/carte?ACTION=2&g_ti_cod=11735&g_ta_cod=11735</a></td>
       <td><a href="http://www.lgtbaimbridge.fr" target="_blank">http://www.lgtbaimbridge.fr</a></td>
-      <td>Internat filles<br>Internat garçons<br>Internat fermé le Week-end<br>Internat-externé<br>Demi-pension</td>
+      <td>Internat filles<br>Internat garçons<br>Internat fermé le week-end<br>Internat-externé<br>Demi-pension</td>
       <td>56.25</td>
       <td><br>Langue vivante 1 : <br> <br> <br>Anglais-Espagnol <br> <br> <br> <br><br><br>Langue vivante 2 : <br> <br> <br>Espagnol-Allemand <br> <br> <br> <br><br>Niveau de français requis pour s'inscrire à la formation : B2<br>Classes de seconde année :  <br>BCPST 2</td>
       <td>Lycée de centre ville, proche de toute commodité. Internat d'excellence et restauration de qualité.Taux de réussite 2019:très bon.</td>

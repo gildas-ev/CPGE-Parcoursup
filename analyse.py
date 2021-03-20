@@ -343,6 +343,7 @@ print(cpge.shape)
 cpge.rename(columns={"Indicateur Parcoursup du taux d’accès des candidats ayant postulé à la formation (ratio entre le dernier appelé et le dernier classé)": "Taux d'accès"}, inplace=True)
 parametres = ["Decile",
     "Établissement",
+    "Statut de l’établissement de la filière de formation (public, privé…)",
     "Département",
     "Académie de l’établissement",
     "Capacité de l’établissement par formation",
@@ -375,7 +376,7 @@ file.write("""<style>@import url('https://fonts.googleapis.com/css2?family=Robot
 <style>body {font-family: 'Roboto';background-color: rgb(241, 241, 241);}</style>
 <style>th {background-color: #c5c5c5;}</style>
 <style>td {background-color: #D9E1F2;}</style>
-<style>input {margin-bottom: 10px;padding: 5px;width: 25%;}</style>
+<style>input {margin-bottom: 10px;padding: 5px;width: 30%;}</style>
 <strong>Tableau synthétique des formations """ + str(filiere) + """ session 2020<br>
 Contact : <a href='mailto:ev.gildas@gmail.com'>email</a> <a href='https://github.com/gildas-ev/CPGE-Parcoursup' target='_blank'>github</a><br>
 Sources : <a href='https://data.enseignementsup-recherche.gouv.fr/explore/dataset/fr-esr-parcoursup/information/?sort=tri&location=3,19.03489,-23.8335&basemap=e69ab1' target='_blank'>Parcoursup</a> <a href='https://www.letudiant.fr/etudes/classes-prepa/le-palmares-des-prepas-scientifiques-quelle-cpge-pour-vous.html' target='_blank'>L'Etudiant (palmarès 2020)</a><br></strong>
@@ -388,7 +389,7 @@ Couplé au taux d'admis à l'ouverture de la procédure principale, il permet d'
 Les résultats marqués d'un *, sont potentiellement faux : le problème est de relier les données parcoursup et un classement de l'Etudiant.<br>
 Aussi les résultats ne tiennent pas compte de la répartition entre les différentes spés, des non passages en spé, ou encore des changements d'établissement.<br>
 Une valeur "NaN" signifie que la donnée n'a pas été trouvée.<br></p>
-<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un département ou une académie">
+<input id='myInput' onkeyup='searchTable()' type='text' placeholder="Rechercher un établissement, un statut, un département ou une académie">
 <script>
 function searchTable() {
   var input, filter, found, table, tr, td, i, j;
@@ -406,6 +407,9 @@ function searchTable() {
     }
     else if (td[3].innerHTML.toUpperCase().indexOf(filter) > -1) {
       found = true;
+    }
+    else if (td[4].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        found = true;
     }
     
     if (found) {
