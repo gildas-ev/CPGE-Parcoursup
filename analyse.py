@@ -87,22 +87,6 @@ def scrapUrl(link):
         Dictionnaire qui contient les informations (numpy.nan si erreur/absent).
 
     """
-    if not (type(link) == str): # Si le lien parcoursup n'est pas renseigné
-        result = {
-        "Hebergement": np.nan,
-        "Infos supplementaires": np.nan,
-        "Site": np.nan,
-        "Rapport d'examen des voeux": np.nan,
-        "Langues et options": np.nan
-        }
-        return result
-    
-    link = link.split('=')
-    code = link[-1]
-    url = "https://dossier.parcoursup.fr/Candidats/public/fiches/afficherFicheFormation?g_ta_cod=" + code # Réel url de la fiche parcoursup
-
-    page = urllib.request.urlopen(url) # Requête
-    soup = BeautifulSoup(page, 'html.parser')
 
     result = {
         "Hebergement": np.nan,
@@ -111,6 +95,20 @@ def scrapUrl(link):
         "Rapport d'examen des voeux": np.nan,
         "Langues et options": np.nan
     }
+
+    if not (type(link) == str): # Si le lien parcoursup n'est pas renseigné
+        return result
+    
+    link = link.split('=')
+    code = link[-1]
+    url = "https://dossier.parcoursup.fr/Candidats/public/fiches/afficherFicheFormation?g_ta_cod=" + code # Réel url de la fiche parcoursup
+
+    try:
+        page = urllib.request.urlopen(url) # Requête
+    except:
+        print(f"Skip scraping {link}")
+        return result
+    soup = BeautifulSoup(page, 'html.parser')
 
     # Hebergement
     try:
@@ -181,6 +179,7 @@ def fillFiche(cpge):
     for i in range(0, nRows): # Pour chaque établissement
         link = cpge["Lien de la formation sur la plateforme Parcoursup"].values[i] # On récupère son lien parcoursup
         # On scrape la fiche et on ajoute les informations aux colonnes
+        print(i, link)
         result = scrapUrl(link)
         hebergement.append(result["Hebergement"])
         infos.append(result["Infos supplementaires"])
